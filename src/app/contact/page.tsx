@@ -21,7 +21,7 @@ const WhatsappIcon = () => (
 );
 
 export default function ContactPage() {
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'monaco-harbor');
   if (!heroImage) return null;
 
@@ -104,7 +104,7 @@ export default function ContactPage() {
                  viewport={{ once: true }}
                  transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="w-full" key={language}>
                     {translations.contact.faq.items.map((item, index) => (
                          <AccordionItem value={`item-${index}`} key={index}>
                             <AccordionTrigger className="text-white font-headline text-lg hover:no-underline">{item.question}</AccordionTrigger>
