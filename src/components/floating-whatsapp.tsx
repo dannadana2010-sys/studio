@@ -14,10 +14,12 @@ const WhatsappIcon = () => (
   </svg>
 );
 
+const MotionLink = motion(Link);
+
 export function FloatingWhatsApp() {
   return (
-    <Link href="https://wa.me/33123456789" passHref legacyBehavior>
-      <motion.a
+    <MotionLink
+        href="https://wa.me/33123456789"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg"
@@ -34,7 +36,6 @@ export function FloatingWhatsApp() {
         whileTap={{ scale: 0.95 }}
       >
         <WhatsappIcon />
-      </motion.a>
-    </Link>
+      </MotionLink>
   );
 }
