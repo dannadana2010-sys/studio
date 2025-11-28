@@ -2,34 +2,39 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
 import { Card, CardContent } from '@/components/ui/card';
 import { MotionDiv } from '@/components/motion-div';
-import { Star, UtensilsCrossed, Ticket, Ship, Building2 } from 'lucide-react';
+import { Star, UtensilsCrossed, Ticket, Ship, Building2, Mountain, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 
 const conciergeServices = [
   {
     icon: <UtensilsCrossed className="h-8 w-8 text-primary" />,
-    title: 'Restaurant Reservations',
-    description: 'Access to the most exclusive and sought-after tables in the city.'
+    title: 'Réservations Gastronomiques',
+    description: 'Accédez aux tables les plus prisées et aux expériences culinaires uniques.'
   },
   {
     icon: <Ticket className="h-8 w-8 text-primary" />,
-    title: 'Event & Experience Booking',
-    description: 'From sold-out concerts to private gallery viewings, we secure your access.'
-  },
-  {
-    icon: <Ship className="h-8 w-8 text-primary" />,
-    title: 'Yacht & Jet Charters',
-    description: 'Arrange private travel by sea or air with our extensive network of partners.'
+    title: 'Billetterie & Événements VIP',
+    description: 'Concerts, opéras, événements sportifs, défilés de mode... Nous vous ouvrons les portes.'
   },
   {
     icon: <Building2 className="h-8 w-8 text-primary" />,
-    title: 'Luxury Accommodations',
-    description: 'Booking the finest hotels, villas, and private residences for your stay.'
+    title: 'Hébergement de Prestige',
+    description: 'Réservation des plus beaux hôtels 5 étoiles, palaces, chalets privés et villas.'
   },
   {
-    icon: <Star className="h-8 w-8 text-primary" />,
-    title: 'Personalized Shopping',
-    description: 'Private appointments at luxury boutiques and access to personal shoppers.'
+    icon: <ShoppingBag className="h-8 w-8 text-primary" />,
+    title: 'Expériences Shopping',
+    description: 'Accès à des personal shoppers, essayages privés et collections exclusives.'
+  },
+  {
+    icon: <Mountain className="h-8 w-8 text-primary" />,
+    title: 'Séjours d\'hiver à Courchevel',
+    description: 'Organisation complète : hébergement, forfaits, moniteurs de ski privés, et plus encore.'
+  },
+  {
+    icon: <Ship className="h-8 w-8 text-primary" />,
+    title: 'Charters de Yachts & Jets Privés',
+    description: 'Voyagez en toute exclusivité et confidentialité grâce à notre réseau de partenaires.'
   }
 ];
 
@@ -43,8 +48,8 @@ export default function ConciergePage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="Exclusive Concierge Services"
-        subtitle="Your key to unlocking a world of luxury and convenience."
+        title="Conciergerie de Luxe"
+        subtitle="Votre passeport pour un monde de privilèges et d'expériences inoubliables."
       />
 
       <section className="py-20 sm:py-32 bg-background">
@@ -56,19 +61,26 @@ export default function ConciergePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Service Beyond Expectation</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Un Service Sans Limites</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Our concierge team is dedicated to fulfilling your every request, no matter how big or small. With unparalleled local knowledge and a global network, we turn your desires into reality. Let us handle the details, so you can enjoy the experience.
+                Notre équipe de concierges est dédiée à anticiper et satisfaire vos moindres désirs. Avec une connaissance locale inégalée et un réseau mondial, nous transformons l'impossible en réalité. Confiez-nous les détails, savourez l'instant.
               </p>
               <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {conciergeServices.map(service => (
-                  <div key={service.title} className="flex gap-4">
-                    <div className="flex-shrink-0">{service.icon}</div>
+                  <MotionDiv 
+                    key={service.title} 
+                    className="flex gap-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="flex-shrink-0 mt-1">{service.icon}</div>
                     <div>
                       <h3 className="font-headline text-lg font-semibold text-white">{service.title}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>
                     </div>
-                  </div>
+                  </MotionDiv>
                 ))}
               </div>
             </MotionDiv>
