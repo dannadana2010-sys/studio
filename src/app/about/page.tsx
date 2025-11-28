@@ -8,19 +8,19 @@ import Image from 'next/image';
 const teamMembers = [
   {
     name: "Jean-Pierre Dubois",
-    role: "Founder & CEO",
+    role: "Fondateur & CEO",
     avatar: "https://picsum.photos/seed/jp/200/200",
     hint: "man portrait"
   },
   {
     name: "Céline Moreau",
-    role: "Head of Operations",
+    role: "Directrice des Opérations",
     avatar: "https://picsum.photos/seed/cm/200/200",
     hint: "woman portrait"
   },
   {
     name: "Louis Chevalier",
-    role: "Lead Chauffeur",
+    role: "Chauffeur Principal",
     avatar: "https://picsum.photos/seed/lc/200/200",
     hint: "man portrait smiling"
   }
@@ -34,8 +34,8 @@ export default function AboutPage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="About Victoire"
-        subtitle="Crafting extraordinary journeys since 2010."
+        title="L'Art du Luxe Privé"
+        subtitle="Victoire Luxury Services SAS incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience."
       />
       <section className="py-20 sm:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,12 +62,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Our Story</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Notre Histoire</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Founded on the principles of excellence, reliability, and unparalleled customer service, Victoire Luxury Services SAS has grown from a single sedan to a premier luxury service provider in Europe. Our passion is to deliver more than just a ride; we deliver an experience.
+                Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury Services SAS est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
-                From the bustling streets of Paris to the serene coasts of the French Riviera, our team is dedicated to ensuring your journey is as flawless and memorable as the destination itself.
+                Des rues animées de Paris aux côtes sereines de la Côte d'Azur, notre équipe se consacre à rendre votre voyage aussi parfait et mémorable que la destination elle-même.
               </p>
             </MotionDiv>
           </div>
@@ -75,18 +75,18 @@ export default function AboutPage() {
           <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
                 <Target className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Our Mission</h3>
-                <p className="mt-2 text-muted-foreground">To provide the most luxurious, reliable, and discreet transport and concierge services, exceeding our clients' expectations every time.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Notre Mission</h3>
+                <p className="mt-2 text-muted-foreground">Fournir les services de transport et de conciergerie les plus luxueux, fiables et discrets, dépassant à chaque fois les attentes de nos clients.</p>
             </MotionDiv>
              <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
                 <Gem className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Our Values</h3>
-                <p className="mt-2 text-muted-foreground">Excellence, Integrity, Punctuality, and a deep commitment to our clients' satisfaction and privacy.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Nos Valeurs</h3>
+                <p className="mt-2 text-muted-foreground">Excellence, Intégrité, Ponctualité, et un engagement profond envers la satisfaction et la confidentialité de nos clients.</p>
             </MotionDiv>
              <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
                 <Users className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Our Team</h3>
-                <p className="mt-2 text-muted-foreground">A curated team of experienced professionals dedicated to delivering a world-class service experience.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Notre Équipe</h3>
+                <p className="mt-2 text-muted-foreground">Une équipe de professionnels expérimentés et dévoués à offrir une expérience de service de classe mondiale.</p>
             </MotionDiv>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Meet The Leadership</h2>
+                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Rencontrez la Direction</h2>
             </MotionDiv>
             <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {teamMembers.map((member, index) => (

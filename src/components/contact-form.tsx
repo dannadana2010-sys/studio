@@ -17,21 +17,37 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Le nom doit contenir au moins 2 caractères.",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Veuillez saisir une adresse e-mail valide.",
   }),
-  subject: z.string().min(5, {
-    message: "Subject must be at least 5 characters.",
-  }),
+  phone: z.string().optional(),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
+    message: "Le message doit contenir au moins 10 caractères.",
   }),
 });
+
+const StylishInput = ({ field, placeholder }: { field: any, placeholder: string }) => (
+    <Input
+        placeholder={placeholder}
+        {...field}
+        className="bg-transparent border-0 border-b-2 border-border rounded-none px-1 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-primary transition-colors"
+    />
+);
+
+const StylishTextarea = ({ field, placeholder }: { field: any, placeholder: string }) => (
+     <Textarea
+        placeholder={placeholder}
+        className="bg-transparent border-0 border-b-2 border-border rounded-none px-1 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-primary transition-colors min-h-[120px]"
+        {...field}
+    />
+);
+
 
 export function ContactForm() {
   const { toast } = useToast();
@@ -40,17 +56,16 @@ export function ContactForm() {
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
+      phone: "",
       message: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // NOTE: In a real app, you would handle email sending here.
     console.log(values);
     toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We will get back to you shortly.",
+      title: "Message Envoyé !",
+      description: "Merci de nous avoir contactés. Nous reviendrons vers vous rapidement.",
     });
     form.reset();
   }
@@ -58,19 +73,19 @@ export function ContactForm() {
   return (
     <Card className="bg-accent border-border">
       <CardHeader>
-        <CardTitle className="font-headline text-2xl text-white">Send us a Message</CardTitle>
+        <CardTitle className="font-headline text-2xl text-white">Ou envoyez-nous un message</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Full Name</FormLabel>
+                  <FormLabel className="text-white">Nom complet</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <StylishInput field={field} placeholder="John Doe" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -81,9 +96,9 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Email Address</FormLabel>
+                  <FormLabel className="text-white">Adresse e-mail</FormLabel>
                   <FormControl>
-                    <Input placeholder="john.doe@example.com" {...field} />
+                     <StylishInput field={field} placeholder="john.doe@example.com" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -91,12 +106,12 @@ export function ContactForm() {
             />
             <FormField
               control={form.control}
-              name="subject"
+              name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Subject</FormLabel>
+                  <FormLabel className="text-white">Téléphone (Optionnel)</FormLabel>
                   <FormControl>
-                    <Input placeholder="Inquiry about Chauffeur Service" {...field} />
+                    <StylishInput field={field} placeholder="+33 1 23 45 67 89" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -107,20 +122,19 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Message</FormLabel>
+                  <FormLabel className="text-white">Votre message</FormLabel>
                   <FormControl>
-                    <Textarea
-                      placeholder="Please provide details about your request..."
-                      className="min-h-[120px]"
-                      {...field}
+                    <StylishTextarea
+                      field={field}
+                      placeholder="Veuillez fournir les détails de votre demande..."
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+            <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
             </Button>
           </form>
         </Form>
