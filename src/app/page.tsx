@@ -133,12 +133,12 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="h-full flex flex-col overflow-hidden group border-border hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
-                   <div className="relative h-56 w-full">
+                   <div className="relative h-56 w-full overflow-hidden">
                       <Image
                         src={service.image.imageUrl}
                         alt={service.image.description}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                         data-ai-hint={service.image.imageHint}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />

@@ -37,7 +37,7 @@ const qualityPillars = [
 
 
 export default function PrivateChauffeurPage() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'chauffeur-service');
+  const heroImage = PlaceHolderImages.find(img => img.id === 'mercedes-s-class-1');
 
   if (!heroImage) return null;
 
@@ -97,11 +97,11 @@ export default function PrivateChauffeurPage() {
             >
                 <div className="relative aspect-video w-full">
                     <Image
-                        src={PlaceHolderImages.find(img => img.id === 'luxury-car-interior')?.imageUrl || ''}
-                        alt={PlaceHolderImages.find(img => img.id === 'luxury-car-interior')?.description || ''}
+                        src={PlaceHolderImages.find(img => img.id === 'chauffeur-service')?.imageUrl || ''}
+                        alt={PlaceHolderImages.find(img => img.id === 'chauffeur-service')?.description || ''}
                         fill
                         className="object-cover rounded-lg shadow-2xl"
-                        data-ai-hint={PlaceHolderImages.find(img => img.id === 'luxury-car-interior')?.imageHint}
+                        data-ai-hint={PlaceHolderImages.find(img => img.id === 'chauffeur-service')?.imageHint}
                     />
                 </div>
             </MotionDiv>
