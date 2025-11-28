@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-home",
+      "description": "Luxury car driving through a modern city at night.",
+      "imageUrl": "https://images.unsplash.com/photo-1679231926688-ef9cdab5ed2f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwYXJpcyUyMG5pZ2h0fGVufDB8fHx8MTc2NDM2MTcxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paris night"
+    },
+    {
+      "id": "mercedes-s-class-1",
+      "description": "Front view of a black Mercedes S-Class.",
+      "imageUrl": "https://images.unsplash.com/photo-1652455504770-137fed8cc41e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtZXJjZWRlcyUyMHMtY2xhc3N8ZW58MHx8fHwxNzY0MzYxNzEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mercedes s-class"
+    },
+    {
+      "id": "range-rover-1",
+      "description": "A white Range Rover on a mountain road.",
+      "imageUrl": "https://images.unsplash.com/photo-1550523164-e0330d1775b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmFuZ2UlMjByb3ZlcnxlbnwwfHx8fDE3NjQzNjE3MTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "range rover"
+    },
+    {
+      "id": "paris-street",
+      "description": "A charming street in Paris with historic buildings.",
+      "imageUrl": "https://images.unsplash.com/photo-1638874085157-91988ffd3fe5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwYXJpcyUyMHN0cmVldHxlbnwwfHx8fDE3NjQzNDQyMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "paris street"
+    },
+    {
+      "id": "monaco-harbor",
+      "description": "View of the harbor in Monaco with yachts.",
+      "imageUrl": "https://images.unsplash.com/photo-1660153857632-c5a5921a8a3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb25hY28lMjBoYXJib3J8ZW58MHx8fHwxNzY0MzYxNzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "monaco harbor"
+    },
+    {
+      "id": "snowy-mountains",
+      "description": "A luxury car in a snowy mountain landscape.",
+      "imageUrl": "https://images.unsplash.com/photo-1670020112207-0e3592080eac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzbm93eSUyMG1vdW50YWluc3xlbnwwfHx8fDE3NjQzMzg4Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "snowy mountains"
+    },
+    {
+      "id": "chauffeur-service",
+      "description": "A chauffeur opening the door of a luxury sedan.",
+      "imageUrl": "https://images.unsplash.com/photo-1764090317565-46fe49fe2a31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaGF1ZmZldXIlMjBjYXJ8ZW58MHx8fHwxNzY0MzYxNzE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chauffeur car"
+    },
+    {
+      "id": "luxury-car-interior",
+      "description": "Interior of a luxury car with leather seats.",
+      "imageUrl": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bHV4dXJ5JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY0MjUwOTEwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury interior"
+    },
+    {
+      "id": "concierge-desk",
+      "description": "A luxury hotel concierge desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1549294413-26f195200c16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsdXh1cnklMjBob3RlbHxlbnwwfHx8fDE3NjQzNTM1Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury hotel"
+    },
+    {
+      "id": "about-us-team",
+      "description": "A team of professionals in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxidXNpbmVzcyUyMHRlYW18ZW58MHx8fHwxNzY0MzAyNjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business team"
+    },
+    {
+      "id": "car-rental-fleet",
+      "description": "A fleet of luxury rental cars.",
+      "imageUrl": "https://images.unsplash.com/photo-1517779894653-4c49f68b4d66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBjYXJzfGVufDB8fHx8MTc2NDM2MTcxNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury cars"
+    }
+  ]
 }
