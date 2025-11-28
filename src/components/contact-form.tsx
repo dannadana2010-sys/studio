@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useLanguage } from "@/context/language-context";
+import { sendContactEmail } from "@/ai/flows/send-contact-email";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -64,13 +65,22 @@ export function ContactForm() {
     key: language, // Re-mount form on language change
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: translations.contact.form.toast.title,
-      description: translations.contact.form.toast.description,
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await sendContactEmail(values);
+      toast({
+        title: translations.contact.form.toast.title,
+        description: translations.contact.form.toast.description,
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Failed to send email", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+      });
+    }
   }
 
   return (
