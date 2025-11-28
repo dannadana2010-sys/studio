@@ -83,7 +83,7 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Nom complet</FormLabel>
+                  <FormLabel className="text-white">Mr.Taoufik</FormLabel>
                   <FormControl>
                     <StylishInput field={field} placeholder="John Doe" />
                   </FormControl>
