@@ -10,10 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { href: '/private-chauffeur', label: 'Private Chauffeur' },
-  { href: '/car-rental', label: 'Car Rental' },
-  { href: '/concierge', label: 'Concierge' },
-  { href: '/about', label: 'About Us' },
+  { href: '/private-chauffeur', label: 'Chauffeur Privé' },
+  { href: '/car-rental', label: 'Location de Voiture' },
+  { href: '/concierge', label: 'Conciergerie' },
+  { href: '/about', label: 'À Propos' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -61,7 +61,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
            <Button asChild variant="default">
-              <Link href="/contact">Book Now</Link>
+              <Link href="/contact">Réserver</Link>
            </Button>
         </div>
 
@@ -99,7 +99,7 @@ export function Navbar() {
                     </nav>
                      <div className="mt-auto p-6 border-t border-border">
                         <Button asChild variant="default" className="w-full">
-                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Book Now</Link>
+                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Réserver</Link>
                         </Button>
                     </div>
                 </div>
