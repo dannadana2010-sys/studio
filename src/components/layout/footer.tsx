@@ -73,14 +73,16 @@ export function Footer() {
             </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
             {isClient && (
-              <p>
-                &copy; {currentYear} {translations.footer.copyright}
-              </p>
+              <>
+                <p>
+                  &copy; {currentYear} {translations.footer.copyright}
+                </p>
+                <span className="hidden sm:inline">|</span>
+                <p className="text-xs text-neutral-600">
+                    Designed by <a href="https://www.darkavel.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors duration-300">Darkavel</a>
+                </p>
+              </>
             )}
-            <span className="hidden sm:inline">|</span>
-            <p className="text-xs text-neutral-600">
-                Designed by <a href="https://www.darkavel.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors duration-300">Darkavel</a>
-            </p>
           </div>
         </div>
       </div>
