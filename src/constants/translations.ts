@@ -1,3 +1,4 @@
+
 export const translations = {
   fr: {
     navLinks: [
@@ -197,9 +198,10 @@ export const translations = {
       faq: {
         title: "Questions Fréquentes",
         items: [
-          { question: "Proposez-vous des sièges auto pour enfants ?", answer: "Oui, sur simple demande lors de la réservation, nous fournissons des sièges adaptés à tous les âges pour garantir la sécurité et le confort de vos enfants." },
-          { question: "Quel est le délai minimum pour réserver ?", answer: "Nous recommandons de réserver au moins 24h à l'avance pour garantir la disponibilité. Cependant, nous nous efforçons de répondre aux demandes urgentes en fonction de nos plannings." },
-          { question: "Acceptez-vous les paiements à bord ?", answer: "Oui, tous nos véhicules sont équipés de terminaux de paiement sécurisés acceptant les principales cartes de crédit (Visa, MasterCard, American Express)." },
+          { question: "Gérez-vous les équipements de ski ou les bagages volumineux ?", answer: "Absolument. Nos véhicules (V-Class, SUV) sont adaptés pour transporter votre matériel de ski vers Courchevel ou vos malles pour la Fashion Week." },
+          { question: "Garantissez-vous la discrétion pour les personnalités ?", answer: "La confidentialité est notre règle d'or. Nos chauffeurs sont formés au protocole VIP et respectent une discrétion absolue." },
+          { question: "Puis-je réserver un véhicule spécifique ?", answer: "Oui. Que vous souhaitiez une Mercedes Classe S ou un Range Rover, nous garantissons le modèle exact réservé." },
+          { question: "Comment se déroule le paiement ?", answer: "Nous acceptons les virements, cartes bancaires (lien sécurisé ou à bord) et offrons la facturation mensuelle pour les comptes entreprises." },
         ],
       },
     },
@@ -424,9 +426,10 @@ export const translations = {
       faq: {
         title: "Frequently Asked Questions",
         items: [
-          { question: "Do you provide child car seats?", answer: "Yes, upon request at the time of booking, we provide age-appropriate seats to ensure the safety and comfort of your children." },
-          { question: "What is the minimum booking time?", answer: "We recommend booking at least 24 hours in advance to ensure availability. However, we strive to accommodate urgent requests based on our schedules." },
-          { question: "Do you accept payments on board?", answer: "Yes, all our vehicles are equipped with secure payment terminals accepting major credit cards (Visa, MasterCard, American Express)." },
+          { question: "Do you handle ski equipment or bulky luggage?", answer: "Absolutely. Our vehicles (V-Class, SUVs) are equipped to transport your ski gear to Courchevel or your trunks for Fashion Week." },
+          { question: "Do you guarantee discretion for public figures?", answer: "Confidentiality is our golden rule. Our chauffeurs are trained in VIP protocol and maintain absolute discretion." },
+          { question: "Can I book a specific vehicle?", answer: "Yes. Whether you desire a Mercedes S-Class or a Range Rover, we guarantee the exact model you book." },
+          { question: "How is payment handled?", answer: "We accept bank transfers, credit cards (via secure link or on board), and offer monthly invoicing for corporate accounts." },
         ],
       },
     },
