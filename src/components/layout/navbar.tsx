@@ -8,7 +8,7 @@ import { useLanguage } from '@/context/language-context';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
 
 export function Navbar() {
   const { translations, language, setLanguage } = useLanguage();
@@ -73,9 +73,14 @@ export function Navbar() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6 text-white" />
+                <span className="sr-only">Ouvrir le menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="bg-black/80 backdrop-blur-lg border-l-border p-0">
+                <SheetHeader className="sr-only">
+                  <SheetTitle>Menu</SheetTitle>
+                  <SheetDescription>Navigation principale du site</SheetDescription>
+                </SheetHeader>
                 <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between p-4 border-b border-border">
                          <Link href="/" className="flex items-center gap-2 text-primary" onClick={() => setMobileMenuOpen(false)}>
@@ -86,6 +91,7 @@ export function Navbar() {
                         </Link>
                         <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
                             <X className="h-6 w-6 text-white" />
+                            <span className="sr-only">Fermer le menu</span>
                         </Button>
                     </div>
                     <nav className="flex flex-col items-start gap-6 p-6">
