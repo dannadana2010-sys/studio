@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useLanguage } from "@/context/language-context";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,20 +18,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { cn } from "@/lib/utils";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Le nom doit contenir au moins 2 caractères.",
-  }),
-  email: z.string().email({
-    message: "Veuillez saisir une adresse e-mail valide.",
-  }),
-  phone: z.string().optional(),
-  message: z.string().min(10, {
-    message: "Le message doit contenir au moins 10 caractères.",
-  }),
-});
 
 const StylishInput = ({ field, placeholder }: { field: any, placeholder: string }) => (
     <Input
@@ -50,7 +37,22 @@ const StylishTextarea = ({ field, placeholder }: { field: any, placeholder: stri
 
 
 export function ContactForm() {
+  const { translations, language } = useLanguage();
   const { toast } = useToast();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: translations.contact.form.validation.name,
+    }),
+    email: z.string().email({
+      message: translations.contact.form.validation.email,
+    }),
+    phone: z.string().optional(),
+    message: z.string().min(10, {
+      message: translations.contact.form.validation.message,
+    }),
+  });
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -59,13 +61,14 @@ export function ContactForm() {
       phone: "",
       message: "",
     },
+    key: language, // Re-mount form on language change
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Message Envoyé !",
-      description: "Merci de nous avoir contactés. Nous reviendrons vers vous rapidement.",
+      title: translations.contact.form.toast.title,
+      description: translations.contact.form.toast.description,
     });
     form.reset();
   }
@@ -73,7 +76,7 @@ export function ContactForm() {
   return (
     <Card className="bg-accent border-border">
       <CardHeader>
-        <CardTitle className="font-headline text-2xl text-white">Ou envoyez-nous un message</CardTitle>
+        <CardTitle className="font-headline text-2xl text-white">{translations.contact.form.title}</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -83,9 +86,9 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Nom Complet</FormLabel>
+                  <FormLabel className="text-white">{translations.contact.form.name.label}</FormLabel>
                   <FormControl>
-                    <StylishInput field={field} placeholder="Ex: Jean Dupont" />
+                    <StylishInput field={field} placeholder={translations.contact.form.name.placeholder} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,9 +99,9 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Email Professionnel</FormLabel>
+                  <FormLabel className="text-white">{translations.contact.form.email.label}</FormLabel>
                   <FormControl>
-                     <StylishInput field={field} placeholder="contact@entreprise.com" />
+                     <StylishInput field={field} placeholder={translations.contact.form.email.placeholder} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -109,9 +112,9 @@ export function ContactForm() {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Téléphone (Optionnel)</FormLabel>
+                  <FormLabel className="text-white">{translations.contact.form.phone.label}</FormLabel>
                   <FormControl>
-                    <StylishInput field={field} placeholder="+33 1 23 45 67 89" />
+                    <StylishInput field={field} placeholder={translations.contact.form.phone.placeholder} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -122,11 +125,11 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Votre message</FormLabel>
+                  <FormLabel className="text-white">{translations.contact.form.message.label}</FormLabel>
                   <FormControl>
                     <StylishTextarea
                       field={field}
-                      placeholder="Veuillez fournir les détails de votre demande..."
+                      placeholder={translations.contact.form.message.placeholder}
                     />
                   </FormControl>
                   <FormMessage />
@@ -134,7 +137,7 @@ export function ContactForm() {
               )}
             />
             <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+              {form.formState.isSubmitting ? translations.contact.form.submit.submitting : translations.contact.form.submit.default}
             </Button>
           </form>
         </Form>

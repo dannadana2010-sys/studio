@@ -1,42 +1,22 @@
+"use client";
+
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import { MotionDiv } from '@/components/motion-div';
 import { CheckCircle, Plane, Briefcase, Mountain, Star } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
-const serviceFeatures = [
-  {
-    icon: <Plane className="h-8 w-8 text-primary" />,
-    title: "Transferts aéroports & gares",
-    description: "Paris, Nice, Genève, Chambéry. Accueil personnalisé avec pancarte nominative."
-  },
-  {
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
-    title: "Déplacements Business & Mise à disposition",
-    description: "Optimisez votre temps avec un service flexible pour vos rendez-vous et roadshows."
-  },
-  {
-    icon: <Mountain className="h-8 w-8 text-primary" />,
-    title: "Transferts Stations de Ski",
-    description: "Rejoignez Courchevel, Megève, et les Alpes en toute sécurité avec nos véhicules équipés."
-  },
-  {
-    icon: <Star className="h-8 w-8 text-primary" />,
-    title: "Transport Événementiel",
-    description: "Service dédié pour le Festival de Cannes, Fashion Week, et autres événements privés."
-  }
-];
-
-const qualityPillars = [
-  "Chauffeurs professionnels, bilingues et formés à la discrétion.",
-  "Véhicules Mercedes récents, inspectés et entretenus pour un confort maximal.",
-  "Service client disponible pour toute demande de modification ou d'itinéraire.",
-  "Confidentialité et sécurité garanties à chaque trajet."
-];
-
+const icons: { [key: string]: React.ReactNode } = {
+  transfers: <Plane className="h-8 w-8 text-primary" />,
+  business: <Briefcase className="h-8 w-8 text-primary" />,
+  ski: <Mountain className="h-8 w-8 text-primary" />,
+  events: <Star className="h-8 w-8 text-primary" />,
+};
 
 export default function PrivateChauffeurPage() {
+  const { translations } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'mercedes-s-class-1');
 
   if (!heroImage) return null;
@@ -45,8 +25,8 @@ export default function PrivateChauffeurPage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="Chauffeur Privé de Luxe"
-        subtitle="Voyagez avec élégance, ponctualité et une discrétion absolue."
+        title={translations.privateChauffeur.hero.title}
+        subtitle={translations.privateChauffeur.hero.subtitle}
       />
 
       <section className="py-20 sm:py-32 bg-background">
@@ -58,14 +38,14 @@ export default function PrivateChauffeurPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Nos Prestations Sur-Mesure</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.privateChauffeur.bespokeServices.title}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Un service adapté à chaque besoin, pour une expérience de transport inégalée.
+              {translations.privateChauffeur.bespokeServices.subtitle}
             </p>
           </MotionDiv>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {serviceFeatures.map((feature, index) => (
+            {translations.privateChauffeur.bespokeServices.features.map((feature, index) => (
                 <MotionDiv
                     key={feature.title}
                     initial={{ opacity: 0, y: 20 }}
@@ -74,7 +54,7 @@ export default function PrivateChauffeurPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                     <Card className="h-full bg-accent border-border hover:border-primary transition-colors duration-300 p-6 flex items-start gap-6">
-                        <div className="flex-shrink-0 mt-1">{feature.icon}</div>
+                        <div className="flex-shrink-0 mt-1">{icons[feature.icon]}</div>
                         <div>
                             <h3 className="font-headline text-xl text-white font-semibold">{feature.title}</h3>
                             <p className="mt-2 text-muted-foreground">{feature.description}</p>
@@ -111,12 +91,12 @@ export default function PrivateChauffeurPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">L'Engagement de l'Excellence</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.privateChauffeur.commitment.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Notre réputation repose sur la qualité de nos chauffeurs et l'état irréprochable de notre flotte.
+                {translations.privateChauffeur.commitment.subtitle}
               </p>
                <ul className="mt-8 space-y-4">
-                {qualityPillars.map(pillar => (
+                {translations.privateChauffeur.commitment.pillars.map(pillar => (
                   <li key={pillar} className="flex items-center gap-3">
                     <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
                     <span className="text-gray-300">{pillar}</span>

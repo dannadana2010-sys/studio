@@ -1,3 +1,5 @@
+"use client";
+
 import { ContactForm } from '@/components/contact-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
@@ -6,6 +8,7 @@ import { MotionDiv } from '@/components/motion-div';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { useLanguage } from '@/context/language-context';
 
 const WhatsappIcon = () => (
   <svg
@@ -17,23 +20,8 @@ const WhatsappIcon = () => (
   </svg>
 );
 
-const faqItems = [
-    {
-        question: "Proposez-vous des sièges auto pour enfants ?",
-        answer: "Oui, sur simple demande lors de la réservation, nous fournissons des sièges adaptés à tous les âges pour garantir la sécurité et le confort de vos enfants."
-    },
-    {
-        question: "Quel est le délai minimum pour réserver ?",
-        answer: "Nous recommandons de réserver au moins 24h à l'avance pour garantir la disponibilité. Cependant, nous nous efforçons de répondre aux demandes urgentes en fonction de nos plannings."
-    },
-    {
-        question: "Acceptez-vous les paiements à bord ?",
-        answer: "Oui, tous nos véhicules sont équipés de terminaux de paiement sécurisés acceptant les principales cartes de crédit (Visa, MasterCard, American Express)."
-    }
-];
-
-
 export default function ContactPage() {
+  const { translations } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'monaco-harbor');
   if (!heroImage) return null;
 
@@ -41,8 +29,8 @@ export default function ContactPage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="Contact & Réservations"
-        subtitle="Nous sommes là pour vous aider 24/7. Contactez-nous pour planifier votre prochain voyage."
+        title={translations.contact.hero.title}
+        subtitle={translations.contact.hero.subtitle}
       />
 
       <section className="py-20 sm:py-32 bg-background">
@@ -54,29 +42,29 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Contactez-nous</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.contact.getInTouch.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Pour une assistance immédiate ou pour réserver, veuillez utiliser les options ci-dessous. Nous sommes disponibles 24/7.
+                {translations.contact.getInTouch.subtitle}
               </p>
               <div className="mt-12 space-y-6">
                 <Button asChild size="lg" className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white">
                   <Link href="https://wa.me/33123456789" target="_blank" rel="noopener noreferrer">
                     <WhatsappIcon />
-                    Réserver par WhatsApp
+                    {translations.contact.getInTouch.whatsapp}
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="w-full">
                   <a href="tel:+33123456789">
                     <Phone className="h-5 w-5" />
-                    Appeler
+                    {translations.contact.getInTouch.call}
                   </a>
                 </Button>
               </div>
 
               <div className="mt-12">
-                <h3 className="font-headline text-xl text-white font-semibold">Zones d'Intervention</h3>
+                <h3 className="font-headline text-xl text-white font-semibold">{translations.contact.serviceAreas.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-4">
-                  {['Paris', 'Cannes', 'Monaco', 'Genève', 'Courchevel'].map(city => (
+                  {translations.contact.serviceAreas.cities.map(city => (
                     <div key={city} className="flex items-center gap-2 bg-accent p-3 rounded-md">
                       <MapPin className="h-5 w-5 text-primary" />
                       <span className="text-white">{city}</span>
@@ -107,7 +95,7 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Questions Fréquentes</h2>
+                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.contact.faq.title}</h2>
             </MotionDiv>
             <MotionDiv
                  className="mt-12 max-w-3xl mx-auto"
@@ -117,7 +105,7 @@ export default function ContactPage() {
                  transition={{ duration: 0.8, delay: 0.2 }}
             >
                 <Accordion type="single" collapsible className="w-full">
-                    {faqItems.map((item, index) => (
+                    {translations.contact.faq.items.map((item, index) => (
                          <AccordionItem value={`item-${index}`} key={index}>
                             <AccordionTrigger className="text-white font-headline text-lg hover:no-underline">{item.question}</AccordionTrigger>
                             <AccordionContent className="text-muted-foreground">

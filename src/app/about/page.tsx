@@ -1,32 +1,15 @@
+"use client";
+
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
 import { MotionDiv } from '@/components/motion-div';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Target, Gem, Users } from 'lucide-react';
 import Image from 'next/image';
-
-const teamMembers = [
-  {
-    name: "Jean-Pierre Dubois",
-    role: "Fondateur & CEO",
-    avatar: "https://picsum.photos/seed/jp/200/200",
-    hint: "man portrait"
-  },
-  {
-    name: "Céline Moreau",
-    role: "Directrice des Opérations",
-    avatar: "https://picsum.photos/seed/cm/200/200",
-    hint: "woman portrait"
-  },
-  {
-    name: "Louis Chevalier",
-    role: "Chauffeur Principal",
-    avatar: "https://picsum.photos/seed/lc/200/200",
-    hint: "man portrait smiling"
-  }
-];
+import { useLanguage } from '@/context/language-context';
 
 export default function AboutPage() {
+  const { translations } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'paris-street');
   if (!heroImage) return null;
 
@@ -34,8 +17,8 @@ export default function AboutPage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="L'Art du Luxe Privé"
-        subtitle="Victoire Luxury service (VLS) incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience."
+        title={translations.about.hero.title}
+        subtitle={translations.about.hero.subtitle}
       />
       <section className="py-20 sm:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,12 +45,12 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Notre Histoire</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.about.story.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury service (VLS) est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.
+                {translations.about.story.p1}
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
-                Des rues animées de Paris aux côtes sereines de la Côte d'Azur, notre équipe se consacre à rendre votre voyage aussi parfait et mémorable que la destination elle-même.
+                {translations.about.story.p2}
               </p>
             </MotionDiv>
           </div>
@@ -75,18 +58,18 @@ export default function AboutPage() {
           <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
                 <Target className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Notre Mission</h3>
-                <p className="mt-2 text-muted-foreground">Fournir les services de transport et de conciergerie les plus luxueux, fiables et discrets, dépassant à chaque fois les attentes de nos clients.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">{translations.about.values.mission.title}</h3>
+                <p className="mt-2 text-muted-foreground">{translations.about.values.mission.text}</p>
             </MotionDiv>
              <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
                 <Gem className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Nos Valeurs</h3>
-                <p className="mt-2 text-muted-foreground">Excellence, Intégrité, Ponctualité, et un engagement profond envers la satisfaction et la confidentialité de nos clients.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">{translations.about.values.values.title}</h3>
+                <p className="mt-2 text-muted-foreground">{translations.about.values.values.text}</p>
             </MotionDiv>
              <MotionDiv initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
                 <Users className="h-12 w-12 mx-auto text-primary" />
-                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">Notre Équipe</h3>
-                <p className="mt-2 text-muted-foreground">Une équipe de professionnels expérimentés et dévoués à offrir une expérience de service de classe mondiale.</p>
+                <h3 className="mt-4 font-headline text-2xl font-semibold text-white">{translations.about.values.team.title}</h3>
+                <p className="mt-2 text-muted-foreground">{translations.about.values.team.text}</p>
             </MotionDiv>
           </div>
         </div>
@@ -101,10 +84,10 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
-                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Rencontrez la Direction</h2>
+                <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.about.management.title}</h2>
             </MotionDiv>
             <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {teamMembers.map((member, index) => (
+                {translations.about.management.members.map((member, index) => (
                     <MotionDiv 
                         key={member.name}
                         className="text-center"
@@ -114,7 +97,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
                         <Avatar className="h-32 w-32 mx-auto border-4 border-primary">
-                            <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.hint} />
+                            <AvatarImage src={`https://picsum.photos/seed/${member.name.split(' ')[0]}/200/200`} alt={member.name} data-ai-hint={member.hint} />
                             <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                         <h3 className="mt-4 font-headline text-xl text-white font-semibold">{member.name}</h3>

@@ -1,44 +1,24 @@
+"use client";
+
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { MotionDiv } from '@/components/motion-div';
-import { Star, UtensilsCrossed, Ticket, Ship, Building2, Mountain, ShoppingBag } from 'lucide-react';
+import { UtensilsCrossed, Ticket, Ship, Building2, Mountain, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '@/context/language-context';
 
-const conciergeServices = [
-  {
-    icon: <UtensilsCrossed className="h-8 w-8 text-primary" />,
-    title: 'Réservations Gastronomiques',
-    description: 'Accédez aux tables les plus prisées et aux expériences culinaires uniques.'
-  },
-  {
-    icon: <Ticket className="h-8 w-8 text-primary" />,
-    title: 'Billetterie & Événements VIP',
-    description: 'Concerts, opéras, événements sportifs, défilés de mode... Nous vous ouvrons les portes.'
-  },
-  {
-    icon: <Building2 className="h-8 w-8 text-primary" />,
-    title: 'Hébergement de Prestige',
-    description: 'Réservation des plus beaux hôtels 5 étoiles, palaces, chalets privés et villas.'
-  },
-  {
-    icon: <ShoppingBag className="h-8 w-8 text-primary" />,
-    title: 'Expériences Shopping',
-    description: 'Accès à des personal shoppers, essayages privés et collections exclusives.'
-  },
-  {
-    icon: <Mountain className="h-8 w-8 text-primary" />,
-    title: 'Séjours d\'hiver à Courchevel',
-    description: 'Organisation complète : hébergement, forfaits, moniteurs de ski privés, et plus encore.'
-  },
-  {
-    icon: <Ship className="h-8 w-8 text-primary" />,
-    title: 'Charters de Yachts & Jets Privés',
-    description: 'Voyagez en toute exclusivité et confidentialité grâce à notre réseau de partenaires.'
-  }
-];
+const icons: { [key: string]: React.ReactNode } = {
+  gastronomy: <UtensilsCrossed className="h-8 w-8 text-primary" />,
+  events: <Ticket className="h-8 w-8 text-primary" />,
+  accommodation: <Building2 className="h-8 w-8 text-primary" />,
+  shopping: <ShoppingBag className="h-8 w-8 text-primary" />,
+  winterStays: <Mountain className="h-8 w-8 text-primary" />,
+  charters: <Ship className="h-8 w-8 text-primary" />,
+};
 
 export default function ConciergePage() {
+  const { translations } = useLanguage();
   const heroImage = PlaceHolderImages.find(img => img.id === 'concierge-desk');
   const sideImage = PlaceHolderImages.find(img => img.id === 'monaco-harbor');
 
@@ -48,8 +28,8 @@ export default function ConciergePage() {
     <div>
       <HeroSection
         image={heroImage}
-        title="Conciergerie de Luxe"
-        subtitle="Votre passeport pour un monde de privilèges et d'expériences inoubliables."
+        title={translations.concierge.hero.title}
+        subtitle={translations.concierge.hero.subtitle}
       />
 
       <section className="py-20 sm:py-32 bg-background">
@@ -61,12 +41,12 @@ export default function ConciergePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Un Service Sans Limites</h2>
+              <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.concierge.limitless.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Notre équipe de concierges est dédiée à anticiper et satisfaire vos moindres désirs. Avec une connaissance locale inégalée et un réseau mondial, nous transformons l'impossible en réalité. Confiez-nous les détails, savourez l'instant.
+                {translations.concierge.limitless.description}
               </p>
               <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {conciergeServices.map(service => (
+                {translations.concierge.limitless.services.map(service => (
                   <MotionDiv 
                     key={service.title} 
                     className="flex gap-4"
@@ -75,7 +55,7 @@ export default function ConciergePage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="flex-shrink-0 mt-1">{service.icon}</div>
+                    <div className="flex-shrink-0 mt-1">{icons[service.icon]}</div>
                     <div>
                       <h3 className="font-headline text-lg font-semibold text-white">{service.title}</h3>
                       <p className="mt-1 text-sm text-muted-foreground">{service.description}</p>

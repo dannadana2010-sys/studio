@@ -81,4 +81,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  .custom-cursor-grabbed {
+    cursor: none !important;
+  }
+  .custom-cursor-grabbed * {
+    cursor: none !important;
+  }
 }

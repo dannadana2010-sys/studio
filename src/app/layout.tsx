@@ -4,10 +4,19 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { FloatingWhatsApp } from '@/components/floating-whatsapp';
+import { AppProvider } from '@/providers/app-provider';
+import { SmoothScroll } from '@/components/smooth-scroll';
+import { CustomCursor } from '@/components/custom-cursor';
+
+const defaultUrl = process.env.VERCEL_URL
+  ? `https://` + process.env.VERCEL_URL
+  : "http://localhost:3000";
+
 
 export const metadata: Metadata = {
-  title: 'Victoire Luxury service (VLS)',
-  description: 'Services de luxe de chauffeur, location de voiture et conciergerie.',
+  metadataBase: new URL(defaultUrl),
+  title: 'Victoire Luxury service (VLS) - Chauffeur Privé & Conciergerie de Luxe',
+  description: 'Services de luxe de chauffeur, location de voiture et conciergerie à Paris, Cannes, Monaco, Genève et Courchevel.',
 };
 
 export default function RootLayout({
@@ -23,11 +32,15 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body bg-background text-foreground antialiased">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
-        <Toaster />
+        <AppProvider>
+            <CustomCursor />
+            <SmoothScroll />
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <FloatingWhatsApp />
+            <Toaster />
+        </AppProvider>
       </body>
     </html>
   );

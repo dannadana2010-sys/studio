@@ -4,20 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Menu, X, Crown } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-const navLinks = [
-  { href: '/private-chauffeur', label: 'Chauffeur Privé' },
-  { href: '/car-rental', label: 'Location de Voiture' },
-  { href: '/concierge', label: 'Conciergerie' },
-  { href: '/about', label: 'À Propos' },
-  { href: '/contact', label: 'Contact' },
-];
-
 export function Navbar() {
+  const { translations, language, setLanguage } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -28,6 +22,12 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'fr' ? 'en' : 'fr');
+  };
+
+  const navLinks = translations.navLinks;
 
   return (
     <motion.header
@@ -59,9 +59,12 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+           <Button onClick={toggleLanguage} variant="ghost" size="sm" className="text-gray-300 hover:text-primary">
+            {language === 'fr' ? 'EN' : 'FR'}
+          </Button>
            <Button asChild variant="default">
-              <Link href="/contact">Réserver</Link>
+              <Link href="/contact">{translations.common.bookNow}</Link>
            </Button>
         </div>
 
@@ -97,9 +100,12 @@ export function Navbar() {
                             </Link>
                         ))}
                     </nav>
-                     <div className="mt-auto p-6 border-t border-border">
+                     <div className="mt-auto p-6 border-t border-border space-y-4">
+                        <Button onClick={toggleLanguage} variant="outline" className="w-full">
+                          {language === 'fr' ? 'Switch to English' : 'Passer en Français'}
+                        </Button>
                         <Button asChild variant="default" className="w-full">
-                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Réserver</Link>
+                            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>{translations.common.bookNow}</Link>
                         </Button>
                     </div>
                 </div>

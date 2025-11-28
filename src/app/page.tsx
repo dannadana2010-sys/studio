@@ -1,3 +1,5 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -5,72 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, ShieldCheck, Clock, Award, MapPin } from 'lucide-react';
 import { MotionDiv } from '@/components/motion-div';
-
-const services = [
-  {
-    title: 'Chauffeur Privé',
-    description: 'Transferts aéroports, mises à disposition et déplacements VIP.',
-    link: '/private-chauffeur',
-    image: PlaceHolderImages.find(img => img.id === 'chauffeur-service')
-  },
-  {
-    title: 'Location de Luxe',
-    description: 'Berlines, SUV et Supercars pour vos séjours.',
-    link: '/car-rental',
-    image: PlaceHolderImages.find(img => img.id === 'car-rental-fleet')
-  },
-  {
-    title: 'Conciergerie',
-    description: 'Réservations hôtels 5★, restaurants et événements exclusifs.',
-    link: '/concierge',
-    image: PlaceHolderImages.find(img => img.id === 'concierge-desk')
-  },
-];
-
-const destinations = [
-  {
-    name: 'Paris',
-    description: 'Élégance & Services Premium'
-  },
-  {
-    name: 'Cannes',
-    description: 'Glamour & Événements'
-  },
-  {
-    name: 'Monaco',
-    description: 'Luxe & Exclusivité'
-  },
-  {
-    name: 'Genève',
-    description: 'Affaires & Discrétion'
-  },
-  {
-    name: 'Courchevel',
-    description: 'Sommets & Prestige'
-  }
-];
-
-const features = [
-  {
-    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
-    title: 'Sécurité & Discrétion',
-    description: 'Votre sécurité et confidentialité sont notre priorité. Nos chauffeurs sont des professionnels agréés.'
-  },
-  {
-    icon: <Clock className="h-10 w-10 text-primary" />,
-    title: 'Disponibilité 24/7',
-    description: 'Nous sommes à votre service 24h/24, 7j/7, pour répondre à tous vos besoins.'
-  },
-  {
-    icon: <Award className="h-10 w-10 text-primary" />,
-    title: 'Qualité Inégalée',
-    description: 'Découvrez le summum du luxe avec nos véhicules impeccables et un service exceptionnel.'
-  }
-];
-
+import { useLanguage } from '@/context/language-context';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-home');
+  const { translations } = useLanguage();
 
   return (
     <div className="flex flex-col">
@@ -94,14 +35,14 @@ export default function Home() {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-            Chauffeur Privé de Luxe à Paris, Cannes, Monaco, Genève & Courchevel
+            {translations.home.hero.title}
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-            Bienvenue chez Victoire Luxury service (VLS), référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.
+            {translations.home.hero.subtitle}
           </p>
           <div className="mt-10">
             <Button asChild size="lg">
-              <Link href="/contact">Réserver un Chauffeur <ArrowRight className="ml-2 h-5 w-5" /></Link>
+              <Link href="/contact">{translations.home.hero.cta} <ArrowRight className="ml-2 h-5 w-5" /></Link>
             </Button>
           </div>
         </MotionDiv>
@@ -117,14 +58,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Nos Services Exclusifs</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.home.services.title}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Conçus pour offrir le summum du luxe et de la commodité.
+              {translations.home.services.subtitle}
             </p>
           </MotionDiv>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => service.image && (
+            {translations.home.services.cards.map((service, index) => {
+              const image = PlaceHolderImages.find(img => img.id === service.image);
+              return image && (
               <MotionDiv 
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -135,11 +78,11 @@ export default function Home() {
                 <Card className="h-full flex flex-col overflow-hidden group border-border hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
                    <div className="relative h-56 w-full overflow-hidden">
                       <Image
-                        src={service.image.imageUrl}
-                        alt={service.image.description}
+                        src={image.imageUrl}
+                        alt={image.description}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={service.image.imageHint}
+                        data-ai-hint={image.imageHint}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                    </div>
@@ -149,12 +92,12 @@ export default function Home() {
                   <CardContent className="flex-grow flex flex-col p-4 pt-0">
                     <p className="text-muted-foreground mb-4">{service.description}</p>
                     <Button asChild variant="link" className="mt-auto p-0 justify-start text-primary h-auto">
-                        <Link href={service.link}>En savoir plus <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                        <Link href={service.link}>{translations.common.learnMore} <ArrowRight className="ml-2 h-4 w-4" /></Link>
                     </Button>
                   </CardContent>
                 </Card>
               </MotionDiv>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -169,10 +112,10 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Nos Destinations d'Excellence</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.home.destinations.title}</h2>
           </MotionDiv>
           <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
-            {destinations.map((destination, index) => (
+            {translations.home.destinations.places.map((destination, index) => (
               <MotionDiv
                 key={destination.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -200,13 +143,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">L'Excellence VLS</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.home.advantage.title}</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              L'engagement de l'excellence dans chaque détail de votre voyage.
+              {translations.home.advantage.subtitle}
             </p>
           </MotionDiv>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-            {features.map((feature, index) => (
+            {translations.home.advantage.features.map((feature, index) => (
               <MotionDiv
                 key={feature.title}
                 className="text-center"
@@ -216,7 +159,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="flex justify-center items-center h-20 w-20 rounded-full bg-background mx-auto">
-                  {feature.icon}
+                  {index === 0 && <ShieldCheck className="h-10 w-10 text-primary" />}
+                  {index === 1 && <Clock className="h-10 w-10 text-primary" />}
+                  {index === 2 && <Award className="h-10 w-10 text-primary" />}
                 </div>
                 <h3 className="mt-6 font-headline text-xl text-white font-semibold">{feature.title}</h3>
                 <p className="mt-2 text-muted-foreground">{feature.description}</p>
