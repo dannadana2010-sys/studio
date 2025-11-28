@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: "Politique de Cookies – Victoire Luxury Services",
@@ -9,11 +10,15 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function CookiesPage() {
+  const [isClient, setIsClient] = React.useState(false);
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Politique de Cookies</h1>
         
-        <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
 
         <SectionTitle>Qu'est-ce qu'un cookie ?</SectionTitle>
         <p>

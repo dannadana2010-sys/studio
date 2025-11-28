@@ -9,11 +9,16 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function CGVPage() {
+  const [isClient, setIsClient] = React.useState(false);
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Conditions Générales de Vente</h1>
         
-        <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
 
         <SectionTitle>Article 1 : Objet</SectionTitle>
         <p>

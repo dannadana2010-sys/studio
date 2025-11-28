@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: "Politique de Confidentialité – Victoire Luxury Services",
@@ -9,11 +10,15 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function ConfidentialitePage() {
+  const [isClient, setIsClient] = React.useState(false);
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Politique de Confidentialité</h1>
         
-        <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
 
         <p>
             Victoire Luxury Services SAS s'engage à protéger la vie privée de ses clients et des visiteurs de son site web. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles.
