@@ -3,6 +3,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
+import { FloatingWhatsApp } from '@/components/floating-whatsapp';
 
 export const metadata: Metadata = {
   title: 'Victoire Luxury service (VLS)',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
         <Toaster />
       </body>
     </html>

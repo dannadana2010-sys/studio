@@ -83,9 +83,9 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Mr.Taoufik</FormLabel>
+                  <FormLabel className="text-white">Nom Complet</FormLabel>
                   <FormControl>
-                    <StylishInput field={field} placeholder="John Doe" />
+                    <StylishInput field={field} placeholder="Ex: Jean Dupont" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,9 +96,9 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-white">Adresse e-mail</FormLabel>
+                  <FormLabel className="text-white">Email Professionnel</FormLabel>
                   <FormControl>
-                     <StylishInput field={field} placeholder="john.doe@example.com" />
+                     <StylishInput field={field} placeholder="contact@entreprise.com" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
