@@ -16,8 +16,15 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Victoire Luxury service (VLS) - Chauffeur Privé & Conciergerie de Luxe',
-  description: 'Services de luxe de chauffeur, location de voiture et conciergerie à Paris, Cannes, Monaco, Genève et Courchevel.',
+  title: "Victoire Luxury | Chauffeur Privé & Private Driver - Paris, Cannes, Monaco",
+  description: "Service de chauffeur privé de luxe, location de voitures et conciergerie. Luxury private driver, car rental & concierge services in Paris, Cannes, Geneva & Courchevel.",
+  openGraph: {
+    title: "Victoire Luxury | Chauffeur Privé & Private Driver",
+    description: "L'excellence du transport privé. Experience unmatched luxury in Paris, Cannes & Monaco.",
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'Victoire Luxury Services'
+  }
 };
 
 export default function RootLayout({
@@ -31,6 +38,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>" />
       </head>
       <body className="font-body bg-background text-foreground antialiased overflow-x-hidden">
         <AppProvider>
