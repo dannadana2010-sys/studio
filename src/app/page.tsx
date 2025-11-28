@@ -5,13 +5,28 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, ShieldCheck, Clock, Award, MapPin } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Clock, Award, MapPin, Star } from 'lucide-react';
 import { MotionDiv } from '@/components/motion-div';
 import { useLanguage } from '@/context/language-context';
+
+const Marquee = ({ items }: { items: string[] }) => (
+    <div className="relative flex overflow-x-hidden text-gray-400">
+        <div className="py-12 animate-marquee whitespace-nowrap flex">
+            {items.concat(items).map((item, index) => (
+                <span key={index} className="font-headline text-2xl mx-8 transition-colors duration-300 hover:text-primary cursor-default">
+                    {item}
+                </span>
+            ))}
+        </div>
+    </div>
+);
+
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-home');
   const { translations } = useLanguage();
+
+  const partners = ["Ritz Paris", "Hotel Martinez", "Cheval Blanc Courchevel", "Festival de Cannes", "Monaco GP"];
 
   return (
     <div className="flex flex-col">
@@ -46,6 +61,21 @@ export default function Home() {
             </Button>
           </div>
         </MotionDiv>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-8 bg-background border-y border-border">
+          <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+            <MotionDiv 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
+                <h3 className="text-center text-sm font-body uppercase tracking-widest text-muted-foreground">{translations.home.partners.title}</h3>
+                <Marquee items={partners} />
+            </MotionDiv>
+          </div>
       </section>
 
       {/* Services Section */}
@@ -165,6 +195,41 @@ export default function Home() {
                 </div>
                 <h3 className="mt-6 font-headline text-xl text-white font-semibold">{feature.title}</h3>
                 <p className="mt-2 text-muted-foreground">{feature.description}</p>
+              </MotionDiv>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 sm:py-32 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <MotionDiv
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.home.testimonials.title}</h2>
+          </MotionDiv>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {translations.home.testimonials.reviews.map((review, index) => (
+              <MotionDiv
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-accent/50 backdrop-blur-sm border-border/50 p-6 flex flex-col justify-center items-center text-center">
+                  <div className="flex text-primary">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
+                  </div>
+                  <p className="mt-4 text-muted-foreground italic">"{review.quote}"</p>
+                  <p className="mt-4 font-semibold text-white">{review.author}</p>
+                </Card>
               </MotionDiv>
             ))}
           </div>

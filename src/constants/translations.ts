@@ -18,6 +18,9 @@ export const translations = {
         subtitle: "Bienvenue chez Victoire Luxury service (VLS), référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.",
         cta: "Réserver un Chauffeur",
       },
+      partners: {
+        title: "Ils nous font confiance",
+      },
       services: {
         title: "Nos Services Exclusifs",
         subtitle: "Conçus pour offrir le summum du luxe et de la commodité.",
@@ -46,6 +49,14 @@ export const translations = {
           { title: "Qualité Inégalée", description: "Découvrez le summum du luxe avec nos véhicules impeccables et un service exceptionnel." },
         ],
       },
+      testimonials: {
+        title: "Ce que disent nos clients",
+        reviews: [
+            { quote: "Un service exceptionnel. Chauffeur ponctuel et d'une courtoisie rare pour notre transfert vers Courchevel.", author: "– Marc D., CEO" },
+            { quote: "La conciergerie a réussi l'impossible pour nous obtenir une table à la dernière minute. Bravo Victoire.", author: "– Sophie L." },
+            { quote: "Véhicules impeccables et conduite très souple. Je recommande pour tous déplacements d'affaires à Genève.", author: "– James W." },
+        ]
+      }
     },
     privateChauffeur: {
       hero: {
@@ -246,11 +257,14 @@ export const translations = {
         subtitle: "Welcome to Victoire Luxury service (VLS), the absolute reference in luxury private transport. A refined, elegant, and fully personalized experience.",
         cta: "Book a Chauffeur",
       },
+      partners: {
+        title: "Our Trusted Partners",
+      },
       services: {
         title: "Our Exclusive Services",
         subtitle: "Designed to offer the pinnacle of luxury and convenience.",
         cards: [
-          { title: "Private Chauffeur", description: "Airport transfers, disposals, and VIP transportation.", link: "/private-chauffeur", image: "chauffeur-service" },
+          { title: "Private Chauffeur", description: "Airport transfers, as-directed hires, and VIP transportation.", link: "/private-chauffeur", image: "chauffeur-service" },
           { title: "Luxury Car Rental", description: "Sedans, SUVs, and Supercars for your travels.", link: "/car-rental", image: "car-rental-fleet" },
           { title: "Concierge", description: "5★ hotel, restaurant, and exclusive event bookings.", link: "/concierge", image: "concierge-desk" },
         ],
@@ -274,6 +288,14 @@ export const translations = {
           { title: "Unmatched Quality", description: "Experience the pinnacle of luxury with our immaculate vehicles and exceptional service." },
         ],
       },
+       testimonials: {
+        title: "What Our Clients Say",
+        reviews: [
+            { quote: "An exceptional service. Punctual chauffeur with rare courtesy for our transfer to Courchevel.", author: "– Marc D., CEO" },
+            { quote: "The concierge worked miracles to get us a last-minute table. Bravo Victoire.", author: "– Sophie L." },
+            { quote: "Impeccable vehicles and very smooth driving. I recommend for all business travel in Geneva.", author: "– James W." },
+        ]
+      }
     },
     privateChauffeur: {
       hero: {
