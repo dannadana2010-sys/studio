@@ -19,7 +19,7 @@ const MotionLink = motion(Link);
 export function FloatingWhatsApp() {
   return (
     <MotionLink
-        href="https://wa.me/33123456789"
+        href="https://wa.me/33668827498"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg"

@@ -7,6 +7,13 @@ import { useLanguage } from '@/context/language-context';
 export function Footer() {
   const { translations } = useLanguage();
 
+  const legalLinks = [
+      { href: "/legal/mentions-legales", label: "Mentions Légales" },
+      { href: "/legal/cgv", label: "CGV" },
+      { href: "/legal/confidentialite", label: "Politique de Confidentialité" },
+      { href: "/legal/cookies", label: "Cookies" },
+  ]
+
   return (
     <footer className="bg-accent text-accent-foreground border-t border-border">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -47,8 +54,15 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-border pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+            <div className="flex justify-center gap-x-6 gap-y-2 flex-wrap mb-4">
+                {legalLinks.map(link => (
+                    <Link key={link.href} href={link.href} className="hover:text-primary transition-colors">
+                        {link.label}
+                    </Link>
+                ))}
+            </div>
+          <p>
             &copy; {new Date().getFullYear()} {translations.footer.copyright}
           </p>
         </div>
