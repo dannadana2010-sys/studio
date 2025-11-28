@@ -75,7 +75,7 @@ export function Navbar() {
                 <Menu className="h-6 w-6 text-white" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background border-l-border p-0">
+            <SheetContent side="right" className="bg-black/80 backdrop-blur-lg border-l-border p-0">
                 <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between p-4 border-b border-border">
                          <Link href="/" className="flex items-center gap-2 text-primary" onClick={() => setMobileMenuOpen(false)}>

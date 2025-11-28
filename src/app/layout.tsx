@@ -7,6 +7,7 @@ import { FloatingWhatsApp } from '@/components/floating-whatsapp';
 import { AppProvider } from '@/providers/app-provider';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { CustomCursor } from '@/components/custom-cursor';
+import { Preloader } from '@/components/preloader';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://` + process.env.VERCEL_URL
@@ -31,13 +32,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body bg-background text-foreground antialiased">
+      <body className="font-body bg-background text-foreground antialiased overflow-x-hidden">
         <AppProvider>
+            <Preloader />
             <CustomCursor />
-            <SmoothScroll />
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <SmoothScroll>
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </SmoothScroll>
             <FloatingWhatsApp />
             <Toaster />
         </AppProvider>
