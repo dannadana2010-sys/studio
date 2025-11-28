@@ -26,7 +26,7 @@ export function Footer() {
             <h3 className="font-headline text-lg font-semibold text-white">{translations.footer.services.title}</h3>
             <ul className="mt-4 space-y-2">
               {translations.footer.services.links.map(link => (
-                 <li><Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">{link.label}</Link></li>
+                 <li key={link.href}><Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">{link.label}</Link></li>
               ))}
             </ul>
           </div>
@@ -34,7 +34,7 @@ export function Footer() {
             <h3 className="font-headline text-lg font-semibold text-white">{translations.footer.company.title}</h3>
             <ul className="mt-4 space-y-2">
               {translations.footer.company.links.map(link => (
-                  <li><Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href} className="text-sm text-muted-foreground hover:text-primary">{link.label}</Link></li>
               ))}
             </ul>
           </div>
