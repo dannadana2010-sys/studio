@@ -1,11 +1,19 @@
+
 "use client";
 
 import Link from 'next/link';
 import { Crown, Instagram, Twitter, Facebook } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { useEffect, useState } from 'react';
 
 export function Footer() {
   const { translations } = useLanguage();
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
 
   const legalLinks = [
       { href: "/legal/mentions-legales", label: "Mentions Légales" },
@@ -64,7 +72,7 @@ export function Footer() {
             </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
             <p>
-              &copy; {new Date().getFullYear()} {translations.footer.copyright}
+              &copy; {currentYear} {translations.footer.copyright}
             </p>
             <span className="hidden sm:inline">|</span>
             <p className="text-xs text-neutral-600">
