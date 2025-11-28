@@ -43,7 +43,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2 text-primary">
           <Crown className="h-8 w-8" />
           <span className="font-headline text-2xl font-bold tracking-wider text-white">
-            VICTOIRE
+            VLS
           </span>
         </Link>
 
@@ -78,7 +78,7 @@ export function Navbar() {
                          <Link href="/" className="flex items-center gap-2 text-primary" onClick={() => setMobileMenuOpen(false)}>
                             <Crown className="h-6 w-6" />
                             <span className="font-headline text-xl font-bold text-white">
-                                VICTOIRE
+                                VLS
                             </span>
                         </Link>
                         <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>

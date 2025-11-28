@@ -35,7 +35,7 @@ export default function AboutPage() {
       <HeroSection
         image={heroImage}
         title="L'Art du Luxe Privé"
-        subtitle="Victoire Luxury Services SAS incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience."
+        subtitle="Victoire Luxury service (VLS) incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience."
       />
       <section className="py-20 sm:py-32 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +64,7 @@ export default function AboutPage() {
             >
               <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">Notre Histoire</h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury Services SAS est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.
+                Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury service (VLS) est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.
               </p>
               <p className="mt-4 text-lg text-muted-foreground">
                 Des rues animées de Paris aux côtes sereines de la Côte d'Azur, notre équipe se consacre à rendre votre voyage aussi parfait et mémorable que la destination elle-même.

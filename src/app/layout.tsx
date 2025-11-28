@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Victoire Luxury Services SAS',
+  title: 'Victoire Luxury service (VLS)',
   description: 'Services de luxe de chauffeur, location de voiture et conciergerie.',
 };
 

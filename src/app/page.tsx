@@ -97,7 +97,7 @@ export default function Home() {
             Chauffeur Privé de Luxe à Paris, Cannes, Monaco, Genève & Courchevel
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-            Bienvenue chez Victoire Luxury Services SAS, référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.
+            Bienvenue chez Victoire Luxury service (VLS), référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.
           </p>
           <div className="mt-10">
             <Button asChild size="lg">
@@ -200,7 +200,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">L'Excellence Victoire</h2>
+            <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">L'Excellence VLS</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               L'engagement de l'excellence dans chaque détail de votre voyage.
             </p>

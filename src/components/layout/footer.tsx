@@ -10,7 +10,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 text-primary mb-4">
               <Crown className="h-8 w-8" />
               <span className="font-headline text-2xl font-bold tracking-wider text-white">
-                VICTOIRE
+                VLS
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Victoire Luxury Services SAS. Tous droits réservés.
+            &copy; {new Date().getFullYear()} Victoire Luxury service (VLS). Tous droits réservés.
           </p>
         </div>
       </div>
