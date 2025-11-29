@@ -1,17 +1,19 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Menu, X, Crown } from 'lucide-react';
+import { Menu, X, Crown, Globe } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
 
 export function Navbar() {
-  const { translations, language, setLanguage } = useLanguage();
+  const { language, setLanguage, translations } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,11 +25,16 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'fr' ? 'en' : 'fr');
-  };
-
   const navLinks = translations.navLinks;
+  const languages: { code: 'fr' | 'en' | 'ar'; label: string }[] = [
+    { code: 'fr', label: 'FR' },
+    { code: 'en', label: 'EN' },
+    { code: 'ar', label: 'AR' },
+  ];
+
+  const changeLanguage = (lang: 'fr' | 'en' | 'ar') => {
+    setLanguage(lang);
+  };
 
   return (
     <motion.header
@@ -60,9 +67,21 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-           <Button onClick={toggleLanguage} variant="ghost" size="sm" className="text-gray-300 hover:text-primary">
-            {language === 'fr' ? 'EN' : 'FR'}
-          </Button>
+           <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-primary">
+                <Globe className="h-4 w-4 mr-2" />
+                {language.toUpperCase()}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {languages.map(lang => (
+                <DropdownMenuItem key={lang.code} onClick={() => changeLanguage(lang.code)}>
+                  {lang.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
            <Button asChild variant="default">
               <Link href="/contact">{translations.common.bookNow}</Link>
            </Button>
@@ -76,7 +95,7 @@ export function Navbar() {
                 <span className="sr-only">Ouvrir le menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/80 backdrop-blur-lg border-l-border p-0">
+            <SheetContent side={language === 'ar' ? 'left' : 'right'} className="bg-black/80 backdrop-blur-lg border-border p-0">
                 <SheetHeader className="sr-only">
                   <SheetTitle>Menu</SheetTitle>
                   <SheetDescription>Navigation principale du site</SheetDescription>
@@ -107,9 +126,25 @@ export function Navbar() {
                         ))}
                     </nav>
                      <div className="mt-auto p-6 border-t border-border space-y-4">
-                        <Button onClick={toggleLanguage} variant="outline" className="w-full">
-                          {language === 'fr' ? 'Switch to English' : 'Passer en Français'}
-                        </Button>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="w-full">
+                              <Globe className="h-4 w-4 mr-2" />
+                              {language === 'fr' && 'Français'}
+                              {language === 'en' && 'English'}
+                              {language === 'ar' && 'العربية'}
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width]]">
+                            {languages.map(lang => (
+                              <DropdownMenuItem key={lang.code} onClick={() => { changeLanguage(lang.code); setMobileMenuOpen(false); }}>
+                                {lang.code === 'fr' && 'Français'}
+                                {lang.code === 'en' && 'English'}
+                                {lang.code === 'ar' && 'العربية'}
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                         <Button asChild variant="default" className="w-full">
                             <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>{translations.common.bookNow}</Link>
                         </Button>

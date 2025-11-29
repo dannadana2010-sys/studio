@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Navbar } from '@/components/layout/navbar';
@@ -8,6 +9,7 @@ import { AppProvider } from '@/providers/app-provider';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { CustomCursor } from '@/components/custom-cursor';
 import { Preloader } from '@/components/preloader';
+import { useLanguage } from '@/context/language-context';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://` + process.env.VERCEL_URL
@@ -23,9 +25,37 @@ export const metadata: Metadata = {
     description: "L'excellence du transport privé. Experience unmatched luxury in Paris, Cannes & Monaco.",
     type: 'website',
     locale: 'fr_FR',
+    alternateLocale: ['en_US', 'ar_AE'],
     siteName: 'Victoire Luxury Services'
   }
 };
+
+function ClientLayout({ children }: { children: React.ReactNode }) {
+    'use client';
+    const { language } = useLanguage();
+
+    return (
+        <html lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'} className="dark">
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+                <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👑%3C/text%3E%3C/svg%3E" />
+            </head>
+            <body className="font-body bg-background text-foreground antialiased overflow-x-hidden">
+                <Preloader />
+                <CustomCursor />
+                <SmoothScroll>
+                    <Navbar />
+                    <main className="flex-1">{children}</main>
+                    <Footer />
+                </SmoothScroll>
+                <FloatingWhatsApp />
+                <Toaster />
+            </body>
+        </html>
+    )
+}
 
 export default function RootLayout({
   children,
@@ -33,26 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👑%3C/text%3E%3C/svg%3E" />
-      </head>
-      <body className="font-body bg-background text-foreground antialiased overflow-x-hidden">
-        <AppProvider>
-            <Preloader />
-            <CustomCursor />
-            <SmoothScroll>
-              <Navbar />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </SmoothScroll>
-            <FloatingWhatsApp />
-            <Toaster />
-        </AppProvider>
-      </body>
-    </html>
+    <AppProvider>
+      <ClientLayout>{children}</ClientLayout>
+    </AppProvider>
   );
 }

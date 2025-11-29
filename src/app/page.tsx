@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -24,7 +25,7 @@ const Marquee = ({ items }: { items: string[] }) => (
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-home');
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
 
   const partners = ["Ritz Paris", "Hotel Martinez", "Cheval Blanc Courchevel", "Festival de Cannes", "Monaco GP"];
 
@@ -57,7 +58,7 @@ export default function Home() {
           </p>
           <div className="mt-10">
             <Button asChild size="lg">
-              <Link href="/contact">{translations.home.hero.cta} <ArrowRight className="ml-2 h-5 w-5" /></Link>
+              <Link href="/contact">{translations.home.hero.cta} <ArrowRight className="ms-2 h-5 w-5 rtl:rotate-180" /></Link>
             </Button>
           </div>
         </MotionDiv>
@@ -122,7 +123,7 @@ export default function Home() {
                   <CardContent className="flex-grow flex flex-col p-4 pt-0">
                     <p className="text-muted-foreground mb-4">{service.description}</p>
                     <Button asChild variant="link" className="mt-auto p-0 justify-start text-primary h-auto">
-                        <Link href={service.link}>{translations.common.learnMore} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                        <Link href={service.link}>{translations.common.learnMore} <ArrowRight className="ms-2 h-4 w-4 rtl:rotate-180" /></Link>
                     </Button>
                   </CardContent>
                 </Card>

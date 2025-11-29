@@ -15,7 +15,7 @@ export const translations = {
     home: {
       hero: {
         title: "Chauffeur Privé de Luxe à Paris, Cannes, Monaco, Genève & Courchevel",
-        subtitle: "Bienvenue chez Victoire Luxury service (VLS), référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.",
+        subtitle: "Bienvenue chez Victoire Luxury Services (VLS), référence absolue du transport privé de luxe. Une expérience raffinée, élégante et entièrement personnalisée.",
         cta: "Réserver un Chauffeur",
       },
       partners: {
@@ -150,11 +150,11 @@ export const translations = {
     about: {
       hero: {
         title: "L'Art du Luxe Privé",
-        subtitle: "Victoire Luxury service (VLS) incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience.",
+        subtitle: "Victoire Luxury Services (VLS) incarne l’élégance, la simplicité du service parfait, la discrétion et le soin du détail. Notre objectif : offrir bien plus qu’un trajet – une véritable expérience.",
       },
       story: {
         title: "Notre Histoire",
-        p1: "Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury service (VLS) est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.",
+        p1: "Fondée sur les principes d'excellence, de fiabilité et de service client inégalé, Victoire Luxury Services (VLS) est passée d'une seule berline à un fournisseur de services de luxe de premier plan en Europe. Notre passion est d'offrir plus qu'un simple trajet ; nous offrons une expérience.",
         p2: "Des rues animées de Paris aux côtes sereines de la Côte d'Azur, notre équipe se consacre à rendre votre voyage aussi parfait et mémorable que la destination elle-même.",
       },
       values: {
@@ -237,7 +237,7 @@ export const translations = {
       social: {
         title: "Suivez-nous",
       },
-      copyright: "Victoire Luxury service (VLS). Tous droits réservés.",
+      copyright: "Victoire Luxury Services (VLS). Tous droits réservés.",
     },
   },
   en: {
@@ -255,7 +255,7 @@ export const translations = {
     home: {
       hero: {
         title: "Luxury Private Chauffeur in Paris, Cannes, Monaco, Geneva & Courchevel",
-        subtitle: "Welcome to Victoire Luxury service (VLS), the absolute reference in luxury private transport. A refined, elegant, and fully personalized experience.",
+        subtitle: "Welcome to Victoire Luxury Services (VLS), the absolute reference in luxury private transport. A refined, elegant, and fully personalized experience.",
         cta: "Book a Chauffeur",
       },
       partners: {
@@ -390,11 +390,11 @@ export const translations = {
     about: {
       hero: {
         title: "The Art of Private Luxury",
-        subtitle: "Victoire Luxury service (VLS) embodies elegance, the simplicity of perfect service, discretion, and attention to detail. Our goal is to offer more than just a ride – a true experience.",
+        subtitle: "Victoire Luxury Services (VLS) embodies elegance, the simplicity of perfect service, discretion, and attention to detail. Our goal is to offer more than just a ride – a true experience.",
       },
       story: {
         title: "Our Story",
-        p1: "Founded on the principles of excellence, reliability, and unparalleled customer service, Victoire Luxury service (VLS) has grown from a single sedan to a leading luxury service provider in Europe. Our passion is to offer more than just a ride; we offer an experience.",
+        p1: "Founded on the principles of excellence, reliability, and unparalleled customer service, Victoire Luxury Services (VLS) has grown from a single sedan to a leading luxury service provider in Europe. Our passion is to offer more than just a ride; we offer an experience.",
         p2: "From the bustling streets of Paris to the serene coasts of the French Riviera, our team is dedicated to making your journey as seamless and memorable as the destination itself.",
       },
       values: {
@@ -477,11 +477,249 @@ export const translations = {
       social: {
         title: "Follow Us",
       },
-      copyright: "Victoire Luxury service (VLS). All rights reserved.",
+      copyright: "Victoire Luxury Services (VLS). All rights reserved.",
+    },
+  },
+  ar: {
+    navLinks: [
+      { href: "/private-chauffeur", label: "سائق خاص" },
+      { href: "/car-rental", label: "تأجير سيارات" },
+      { href: "/concierge", label: "خدمات كونسيرج" },
+      { href: "/about", label: "من نحن" },
+      { href: "/contact", label: "تواصل معنا" },
+    ],
+    common: {
+      bookNow: "احجز الآن",
+      learnMore: "اعرف المزيد",
+    },
+    home: {
+      hero: {
+        title: "سائق خاص فاخر في باريس، كان، موناكو، جنيف وكورشفيل",
+        subtitle: "أهلاً بكم في فيكتوار لخدمات الرفاهية (VLS)، المرجع المطلق في النقل الخاص الفاخر. تجربة راقية، أنيقة ومخصصة بالكامل.",
+        cta: "احجز سائقك الخاص",
+      },
+      partners: {
+        title: "شركاؤنا الموثوقون",
+      },
+      services: {
+        title: "خدماتنا الحصرية",
+        subtitle: "مصممة لتقديم قمة الفخامة والراحة.",
+        cards: [
+          { title: "سائق خاص", description: "تنقلات من وإلى المطار، خدمة تحت الطلب لكبار الشخصيات.", link: "/private-chauffeur", image: "chauffeur-service" },
+          { title: "تأجير فاخر", description: "سيارات سيدان، دفع رباعي وسيارات رياضية لإقامتكم.", link: "/car-rental", image: "car-rental-fleet" },
+          { title: "كونسيرج", description: "حجوزات في فنادق 5 نجوم، مطاعم وفعاليات حصرية.", link: "/concierge", image: "concierge-desk" },
+        ],
+      },
+      destinations: {
+        title: "وجهاتنا المتميزة",
+        places: [
+          { name: "باريس", description: "أناقة وخدمات راقية" },
+          { name: "كان", description: "سحر وفعاليات" },
+          { name: "موناكو", description: "فخامة وحصرية" },
+          { name: "جنيف", description: "أعمال وسرية" },
+          { name: "كورشفيل", description: "قمم وهيبة" },
+        ],
+      },
+      advantage: {
+        title: "تميز VLS",
+        subtitle: "التزام بالتميز في كل تفصيل من تفاصيل رحلتك.",
+        features: [
+          { title: "الأمان والسرية", description: "سلامتكم وسريتكم هي أولويتنا. سائقونا محترفون ومعتمدون." },
+          { title: "متوفرون 24/7", description: "نحن في خدمتكم على مدار الساعة طوال أيام الأسبوع لتلبية جميع احتياجاتكم." },
+          { title: "جودة لا تضاهى", description: "اكتشفوا قمة الفخامة مع سياراتنا النقية وخدمتنا الاستثنائية." },
+        ],
+      },
+      testimonials: {
+        title: "ماذا يقول عملاؤنا",
+        reviews: [
+          { quote: "خدمة استثنائية. سائق دقيق في مواعيده ولطيف للغاية في رحلتنا إلى كورشفيل.", author: "– مارك د.، مدير تنفيذي" },
+          { quote: "الكونسيرج حقق المستحil لحجز طاولة لنا في آخر لحظة. برافو فيكتوار.", author: "– صوفي ل." },
+          { quote: "سيارات impecable وقيادة سلسة جداً. أوصي بهم لجميع رحلات العمل في جنيف.", author: "– جيمس و." },
+        ],
+      },
+    },
+    privateChauffeur: {
+      hero: {
+        title: "سائق خاص فاخر",
+        subtitle: "سافر بأناقة، دقة في المواعيد وسرية تامة.",
+      },
+      bespokeServices: {
+        title: "خدماتنا المصممة خصيصًا",
+        subtitle: "خدمة تتكيف مع كل احتياج، لتجربة نقل لا مثيل لها.",
+        features: [
+          { icon: "transfers", title: "التنقل من وإلى المطارات والمحطات", description: "باريس، نيس، جنيف، شامبيري. استقبال شخصي مع لافتة بالاسم." },
+          { icon: "business", title: "رحلات العمل والخدمة تحت الطلب", description: "حقق أقصى استفادة من وقتك مع خدمة مرنة لمواعيدك وجولاتك التعريفية." },
+          { icon: "ski", title: "التنقل إلى منتجعات التزلج", description: "صل إلى كورشفيل، ميجيف، وجبال الألب بأمان تام مع سياراتنا المجهزة." },
+          { icon: "events", title: "النقل للفعاليات", description: "خدمة مخصصة لمهرجان كان السينمائي، أسبوع الموضة، والفعاليات الخاصة الأخرى." },
+        ],
+      },
+      commitment: {
+        title: "الالتزام بالتميز",
+        subtitle: "سمعتنا مبنية على جودة سائقينا والحالة الممتازة لأسطولنا.",
+        pillars: [
+          "سائقون محترفون، يتحدثون لغتين ومدربون على السرية التامة.",
+          "سيارات مرسيدس حديثة، مفحوصة ومصانة لراحة قصوى.",
+          "خدمة عملاء متاحة لأي طلب تعديل أو تغيير في المسار.",
+          "السرية والأمان مضمونان في كل رحلة.",
+        ],
+      },
+    },
+    carRental: {
+      hero: {
+        title: "تأجير سيارات فاخرة",
+        subtitle: "أسطول حصري لتجربة قيادة لا تُنسى.",
+      },
+fleet: {
+        title: "أسطولنا",
+        subtitle: "اختر من مجموعتنا من السيارات المذهلة.",
+        snowTires: "تتوفر إطارات الثلج لكورشفيل وجنيف.",
+        categories: [
+          {
+            title: "سيارات السيدان الفاخرة",
+            description: "الراحة والرقي لرحلاتك.",
+            cars: [
+              { name: "مرسيدس-بنز الفئة S", imageId: "mercedes-s-class-1" },
+              { name: "بي إم دبليو الفئة 7", imageId: "bmw-7-series" },
+            ],
+          },
+          {
+            title: "سيارات الدفع الرباعي",
+            description: "مساحة وتنوع، من المدن إلى القمم.",
+            cars: [
+              { name: "رينج روفر فوغ", imageId: "range-rover-1" },
+              { name: "بي إم دبليو X7", imageId: "bmw-x7" },
+            ],
+          },
+          {
+            title: "السيارات الخارقة",
+            description: "عش تجربة قيادة مثيرة.",
+            cars: [
+              { name: "لامبورغيني هوراكان", imageId: "lambo-1" },
+              { name: "فيراري 296 GTB", imageId: "ferrari-1" },
+            ],
+          },
+        ],
+      },
+      service: {
+        title: "خدمة متكاملة",
+        description: "نبسط تجربة الإيجار الخاصة بك مع توصيل إلى فندقك، المطار أو الشاليه. المساعدة متاحة 24/7 لضمان راحة بالك التامة.",
+      },
+      cta: {
+        request: "اطلب هذه السيارة",
+        book: "احجز سيارتك",
+      },
+    },
+    concierge: {
+      hero: {
+        title: "كونسيرج فاخر",
+        subtitle: "جواز سفرك إلى عالم من الامتيازات والتجارب التي لا تُنسى.",
+      },
+      limitless: {
+        title: "خدمة بلا حدود",
+        description: "فريق الكونسيرج لدينا مكرس لتوقع وتلبية كل رغباتك. بمعرفة محلية لا مثيل لها وشبكة عالمية، نحوّل المستحil إلى حقيقة. اترك لنا التفاصيل، واستمتع باللحظة.",
+        services: [
+          { icon: "gastronomy", title: "حجوزات المطاعم الفاخرة", description: "احصل على أماكن في أرقى المطاعم والتجارب culinaire الفريدة." },
+          { icon: "events", title: "تذاكر وفعاليات VIP", description: "حفلات موسيقية، أوبرا، فعاليات رياضية، عروض أزياء... نفتح لك الأبواب." },
+          { icon: "accommodation", title: "إقامة فاخرة", description: "حجز أجمل الفنادق 5 نجوم، القصور، الشاليهات الخاصة والفيلات." },
+          { icon: "shopping", title: "تجارب التسوق", description: "الوصول إلى متسوقين شخصيين، جلسات قياس خاصة ومجموعات حصرية." },
+          { icon: "winterStays", title: "إقامات شتوية في كورشفيل", description: "تنظيم كامل: إقامة، باقات، مدربي تزلج خاصين، وأكثر." },
+          { icon: "charters", title: "استئجار اليخوت والطائرات الخاصة", description: "سافر بخصوصية تامة وسرية عبر شبكة شركائنا." },
+        ],
+      },
+    },
+    about: {
+      hero: {
+        title: "فن الرفاهية الخاصة",
+        subtitle: "تجسد فيكتوار لخدمات الرفاهية (VLS) الأناقة، بساطة الخدمة المثالية، السرية والاهتمام بالتفاصيل. هدفنا: تقديم أكثر من مجرد رحلة - تجربة حقيقية.",
+      },
+      story: {
+        title: "قصتنا",
+        p1: "تأسست فيكتوار لخدمات الرفاهية (VLS) على مبادئ التميز والموثوقية وخدمة العملاء التي لا مثيل لها، ونمت من سيارة سيدان واحدة لتصبح مزودًا رائدًا للخدمات الفاخرة في أوروبا. شغفنا هو تقديم أكثر من مجرد رحلة؛ نحن نقدم تجربة.",
+        p2: "من شوارع باريس الصاخبة إلى سواحل الريفيرا الفرنسية الهادئة، يكرس فريقنا جهوده لجعل رحلتك سلسة ولا تُنسى مثل الوجهة نفسها.",
+      },
+      values: {
+        mission: { title: "مهمتنا", text: "تقديم أفخر خدمات النقل والكونسيرج وأكثرها موثوقية وسرية، مع تجاوز توقعات عملائنا في كل مرة." },
+        values: { title: "قيمنا", text: "التميز، النزاهة، الالتزام بالمواعيد، والتزام عميق برضا عملائنا وخصوصيتهم." },
+        team: { title: "فريقنا", text: "فريق من المحترفين ذوي الخبرة والتفاني في تقديم تجربة خدمة عالمية المستوى." },
+      },
+      management: {
+        title: "تعرف على الإدارة",
+        members: [
+          { name: "جان بيير دوبوا", role: "المؤسس والرئيس التنفيذي", hint: "mature businessman" },
+          { name: "سيلين مورو", role: "مديرة العمليات", hint: "professional woman" },
+          { name: "كريم أمين", role: "مدير الشراكات", hint: "arabic businessman" },
+          { name: "لويس شوفالييه", role: "كبير السائقين", hint: "smiling chauffeur" },
+        ],
+      },
+    },
+    contact: {
+      hero: {
+        title: "التواصل والحجوزات",
+        subtitle: "نحن هنا لمساعدتك 24/7. تواصل معنا لتخطيط رحلتك القادمة.",
+      },
+      getInTouch: {
+        title: "تواصل معنا",
+        subtitle: "للمساعدة الفورية أو للحجز، يرجى استخدام الخيارات أدناه. نحن متوفرون 24/7.",
+        whatsapp: "احجز عبر واتساب",
+        call: "اتصل بنا",
+      },
+      serviceAreas: {
+        title: "مناطق الخدمة",
+        cities: ["باريس", "كان", "موناكو", "جنيف", "كورشفيل"],
+      },
+      form: {
+        title: "أو أرسل لنا رسالة",
+        name: { label: "الاسم الكامل", placeholder: "مثال: جون دو" },
+        email: { label: "البريد الإلكتروني المهني", placeholder: "contact@company.com" },
+        phone: { label: "الهاتف (اختياري)", placeholder: "+966 50 123 4567" },
+        message: { label: "رسالتك", placeholder: "يرجى تقديم تفاصيل طلبك..." },
+        submit: {
+          default: "إرسال الرسالة",
+          submitting: "جارٍ الإرسال...",
+        },
+        toast: {
+          title: "تم إرسال الرسالة!",
+          description: "شكرًا لتواصلك معنا. سنعود إليك قريبًا.",
+        },
+        validation: {
+          name: "يجب أن يحتوي الاسم على حرفين على الأقل.",
+          email: "الرجاء إدخال عنوان بريد إلكتروني صالح.",
+          message: "يجب أن تحتوي الرسالة على 10 أحرف على الأقل.",
+        },
+      },
+      faq: {
+        title: "الأسئلة الشائعة",
+        items: [
+          { question: "هل تتعاملون مع معدات التزلج أو الأمتعة كبيرة الحجم؟", answer: "بالتأكيد. سياراتنا (V-Class, SUVs) مجهزة لنقل معدات التزلج الخاصة بك إلى كورشفيل أو حقائبك لأسبوع الموضة." },
+          { question: "هل تضمنون السرية للشخصيات العامة؟", answer: "السرية هي قاعدتنا الذهبية. سائقونا مدربون على بروتوكول كبار الشخصيات ويحافظون على سرية تامة." },
+          { question: "هل يمكنني حجز سيارة معينة؟", answer: "نعم. سواء كنت ترغب في سيارة مرسيدس الفئة S أو رينج روفر، فإننا نضمن الطراز المحدد المحجوز." },
+          { question: "كيف يتم الدفع؟", answer: "نحن نقبل التحويلات المصرفية، وبطاقات الائتمان (عبر رابط آمن أو على متن السيارة)، ونقدم فواتير شهرية لحسابات الشركات." },
+        ],
+      },
+    },
+    footer: {
+      tagline: "عش تجربة رفاهية لا مثيل لها.",
+      services: {
+        title: "الخدمات",
+        links: [
+          { href: "/private-chauffeur", label: "سائق خاص" },
+          { href: "/car-rental", label: "تأجير سيارات" },
+          { href: "/concierge", label: "خدمات كونسيرج" },
+        ],
+      },
+      company: {
+        title: "الشركة",
+        links: [
+          { href: "/about", label: "من نحن" },
+          { href: "/contact", label: "تواصل معنا" },
+        ],
+      },
+      social: {
+        title: "تابعنا",
+      },
+      copyright: "فيكتوار لخدمات الرفاهية (VLS). جميع الحقوق محفوظة.",
     },
   },
 };
 
 export type Translations = typeof translations.fr;
-
-    

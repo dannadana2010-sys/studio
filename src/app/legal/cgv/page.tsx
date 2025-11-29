@@ -1,11 +1,8 @@
+
 "use client";
 
-import type { Metadata } from 'next';
 import React from 'react';
-
-export const metadata: Metadata = {
-  title: "Conditions Générales de Vente – Victoire Luxury Services",
-};
+import { useLanguage } from '@/context/language-context';
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
     <h2 className="text-2xl font-headline text-white mt-8 mb-4">{children}</h2>
@@ -13,15 +10,104 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 
 export default function CGVPage() {
   const [isClient, setIsClient] = React.useState(false);
+  const { language } = useLanguage();
   React.useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const lastUpdated = new Date().toLocaleDateString(language === 'fr' ? 'fr-FR' : language === 'en' ? 'en-US' : 'ar-AE');
+  
+  if (language === 'ar') {
+    return (
+        <article className="prose prose-invert max-w-none text-right">
+            <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">شروط البيع العامة</h1>
+            
+            {isClient ? <p>آخر تحديث: {lastUpdated}</p> : <p>&nbsp;</p>}
+
+            <SectionTitle>المادة 1: الموضوع</SectionTitle>
+            <p>
+                تنظم شروط البيع العامة هذه العلاقات التعاقدية بين شركة Victoire Luxury Services SAS وعملائها في إطار خدمات نقل الأشخاص بواسطة مركبة نقل مع سائق (VTC). إن تأكيد الحجز يعني قبول العميل دون تحفظ لهذه الشروط.
+            </p>
+
+            <SectionTitle>المادة 2: الحجز</SectionTitle>
+            <p>
+                يجب أن تكون كل خدمة موضوع حجز مسبق، يؤكده Victoire Luxury Services SAS عبر البريد الإلكتروني أو أي وسيلة كتابية أخرى. يجب على العميل تقديم جميع المعلومات اللازمة للتنفيذ السليم للخدمة (الاسم، وقت الاستقبال، مكان المغادرة والوصول، عدد الركاب، إلخ).
+            </p>
+
+            <SectionTitle>المادة 3: الأسعار والدفع</SectionTitle>
+            <p>
+                الأسعار مذكورة باليورو شاملة الضرائب. يمكن الدفع عن طريق التحويل المصرفي أو بطاقة الائتمان (عبر رابط دفع آمن أو على متن السيارة) قبل أو في بداية الخدمة. للعملاء الذين لديهم حساب، يمكن إصدار فاتورة شهرية وفقًا للشروط المتفق عليها.
+            </p>
+
+            <SectionTitle>المادة 4: الإلغاء</SectionTitle>
+            <p>
+                يكون الإلغاء من قبل العميل مجانيًا إذا تم قبل أكثر من 24 ساعة من بدء الخدمة.
+                لأي إلغاء يتم قبل أقل من 24 ساعة من وقت الاستقبال، سيتم فرض 50% من المبلغ الإجمالي للخدمة.
+                في حالة الإلغاء قبل أقل من 4 ساعات أو في حالة عدم حضور العميل ("no-show")، يكون المبلغ الكامل للخدمة مستحقًا.
+            </p>
+            
+            <SectionTitle>المادة 5: التزامات العميل والركاب</SectionTitle>
+            <p>
+                يلتزم العميل والركاب باحترام قواعد السلامة والتشريعات المعمول بها. حزام الأمان إلزامي. يمنع منعا باتا التدخين (بما في ذلك السجائر الإلكترونية) واستهلاك الكحول أو المواد غير المشروعة على متن السيارة. أي ضرر يلحق بداخل السيارة من قبل العميل أو أحد الركاب سيتم تحميله على العميل.
+            </p>
+
+            <SectionTitle>المادة 6: المسؤولية</SectionTitle>
+            <p>
+                تلتزم Victoire Luxury Services SAS بتوفير سيارة وسائق مطابقين للوائح المعمول بها وبذل كل جهد ممكن لضمان سلامة وراحة ركابها. لا يمكن تحميلنا المسؤولية في حالة التأخير بسبب ظروف غير متوقعة (ازدحام مروري، حوادث، أحوال جوية قاسية، إلخ).
+            </p>
+
+        </article>
+    );
+  }
+
+  if (language === 'en') {
+    return (
+        <article className="prose prose-invert max-w-none">
+            <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">General Terms of Sale</h1>
+            
+            {isClient ? <p>Last updated: {lastUpdated}</p> : <p>&nbsp;</p>}
+
+            <SectionTitle>Article 1: Purpose</SectionTitle>
+            <p>
+                These General Terms of Sale (GTS) govern the contractual relations between the company Victoire Luxury Services SAS and its client within the framework of its passenger transport services by chauffeured vehicle (VTC). The validation of a reservation implies the client's unreserved acceptance of these GTS.
+            </p>
+
+            <SectionTitle>Article 2: Reservation</SectionTitle>
+            <p>
+                All services must be subject to a prior reservation, confirmed by Victoire Luxury Services SAS by e-mail or another written medium. The client must provide all information necessary for the proper execution of the service (name, pick-up time, departure and arrival location, number of passengers, etc.).
+            </p>
+
+            <SectionTitle>Article 3: Rates and Payment</SectionTitle>
+            <p>
+                Rates are indicated in euros including all taxes. Payment can be made by bank transfer, credit card (via a secure payment link or on board the vehicle) before or at the beginning of the service. For account customers, monthly invoicing is possible according to the agreed terms.
+            </p>
+
+            <SectionTitle>Article 4: Cancellation</SectionTitle>
+            <p>
+                Cancellation by the client is free of charge if it occurs more than 24 hours before the start of the service.
+                For any cancellation made less than 24 hours before the pick-up time, 50% of the total amount of the service will be charged.
+                For a cancellation less than 4 hours before or in the event of a client no-show, the full amount of the service is due.
+            </p>
+            
+            <SectionTitle>Article 5: Obligations of the Client and Passengers</SectionTitle>
+            <p>
+                The client and passengers agree to respect safety rules and current legislation. Seat belts are mandatory. It is strictly forbidden to smoke (including electronic cigarettes), consume alcohol, or illicit substances on board the vehicle. Any damage caused to the interior of the vehicle by the client or a passenger will be charged to the client.
+            </p>
+
+            <SectionTitle>Article 6: Liability</SectionTitle>
+            <p>
+                Victoire Luxury Services SAS undertakes to provide a vehicle and a driver compliant with current regulations and to make every effort to ensure the safety and comfort of its passengers. Our liability cannot be engaged in case of delay due to unforeseen circumstances (traffic jams, accidents, extreme weather conditions, etc.).
+            </p>
+
+        </article>
+      );
+  }
 
   return (
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Conditions Générales de Vente</h1>
         
-        {isClient ? <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p> : <p>&nbsp;</p>}
+        {isClient ? <p>Dernière mise à jour : {lastUpdated}</p> : <p>&nbsp;</p>}
 
         <SectionTitle>Article 1 : Objet</SectionTitle>
         <p>

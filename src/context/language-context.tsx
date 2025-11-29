@@ -1,9 +1,10 @@
+
 "use client";
 
 import React, { createContext, useState, useContext, useMemo, useEffect } from 'react';
 import { translations, type Translations } from '@/constants/translations';
 
-type Language = 'fr' | 'en';
+type Language = 'fr' | 'en' | 'ar';
 
 interface LanguageContextType {
   language: Language;
@@ -18,13 +19,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // You could add logic here to detect browser language or load from local storage
+    const storedLang = localStorage.getItem('vls_language') as Language | null;
+    if (storedLang && ['fr', 'en', 'ar'].includes(storedLang)) {
+        setLanguage(storedLang);
+    }
   }, []);
+
+  const setAndStoreLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('vls_language', lang);
+  }
 
   const value = useMemo(() => {
     const currentTranslations = translations[language];
     return {
       language,
-      setLanguage,
+      setLanguage: setAndStoreLanguage,
       translations: currentTranslations,
     };
   }, [language]);

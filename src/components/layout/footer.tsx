@@ -7,21 +7,31 @@ import { useLanguage } from '@/context/language-context';
 import { useEffect, useState } from 'react';
 
 export function Footer() {
-  const { translations } = useLanguage();
+  const { translations, language } = useLanguage();
   const [isClient, setIsClient] = useState(false);
-  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-
-  const legalLinks = [
+  const legalLinks = language === 'fr' ? [
       { href: "/legal/mentions-legales", label: "Mentions Légales" },
       { href: "/legal/cgv", label: "CGV" },
       { href: "/legal/confidentialite", label: "Politique de Confidentialité" },
       { href: "/legal/cookies", label: "Cookies" },
-  ]
+  ] : language === 'en' ? [
+      { href: "/legal/mentions-legales", label: "Legal Notice" },
+      { href: "/legal/cgv", label: "Terms of Service" },
+      { href: "/legal/confidentialite", label: "Privacy Policy" },
+      { href: "/legal/cookies", label: "Cookie Policy" },
+  ] : [
+      { href: "/legal/mentions-legales", label: "إشعار قانوني" },
+      { href: "/legal/cgv", label: "شروط الخدمة" },
+      { href: "/legal/confidentialite", label: "سياسة الخصوصية" },
+      { href: "/legal/cookies", label: "سياسة الكوكيز" },
+  ];
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-accent text-accent-foreground border-t border-border">
@@ -56,7 +66,7 @@ export function Footer() {
           </div>
           <div>
             <h3 className="font-headline text-lg font-semibold text-white">{translations.footer.social.title}</h3>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex space-x-4 rtl:space-x-reverse mt-4">
               <a href="#" className="text-muted-foreground hover:text-primary"><Instagram /></a>
               <a href="#" className="text-muted-foreground hover:text-primary"><Twitter /></a>
               <a href="#" className="text-muted-foreground hover:text-primary"><Facebook /></a>
@@ -71,19 +81,18 @@ export function Footer() {
                     </Link>
                 ))}
             </div>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
+          <div className="space-y-2">
             {isClient ? (
               <>
                 <p>
                   &copy; {currentYear} {translations.footer.copyright}
                 </p>
-                <span className="hidden sm:inline">|</span>
                 <p className="text-xs text-neutral-600">
                     Designed by <a href="https://www.darkavel.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors duration-300">Darkavel</a>
                 </p>
               </>
             ) : (
-                <p>&nbsp;</p> 
+                <div className="h-10" />
             )}
           </div>
         </div>

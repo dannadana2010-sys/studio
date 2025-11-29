@@ -1,3 +1,4 @@
+
 "use client";
 
 import { ContactForm } from '@/components/contact-form';
@@ -127,8 +128,8 @@ export default function ContactPage() {
                 <Accordion type="single" collapsible className="w-full">
                     {translations.contact.faq.items.map((item, index) => (
                          <AccordionItem value={`item-${index}`} key={index}>
-                            <AccordionTrigger className="text-left text-white font-headline text-lg hover:no-underline">{item.question}</AccordionTrigger>
-                            <AccordionContent className="text-muted-foreground">
+                            <AccordionTrigger className="text-start text-white font-headline text-lg hover:no-underline">{item.question}</AccordionTrigger>
+                            <AccordionContent className="text-muted-foreground text-start">
                                 {item.answer}
                             </AccordionContent>
                         </AccordionItem>

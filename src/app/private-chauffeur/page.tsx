@@ -1,3 +1,4 @@
+
 "use client";
 
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -53,7 +54,7 @@ export default function PrivateChauffeurPage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                    <Card className="h-full bg-accent border-border hover:border-primary transition-colors duration-300 p-6 flex items-start gap-6">
+                    <Card className="h-full bg-accent border-border hover:border-primary transition-colors duration-300 p-6 flex items-start gap-6 text-start">
                         <div className="flex-shrink-0 mt-1">{icons[feature.icon]}</div>
                         <div>
                             <h3 className="font-headline text-xl text-white font-semibold">{feature.title}</h3>
@@ -90,6 +91,7 @@ export default function PrivateChauffeurPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="text-start"
             >
               <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.privateChauffeur.commitment.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">
