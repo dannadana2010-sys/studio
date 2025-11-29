@@ -9,10 +9,6 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useLanguage } from '@/context/language-context';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { motion } from 'framer-motion';
 
 const WhatsappIcon = () => (
   <svg
@@ -24,56 +20,22 @@ const WhatsappIcon = () => (
   </svg>
 );
 
-
-const InteractiveMap = () => {
+const ServiceAreas = () => {
     const { translations } = useLanguage();
-    const cities = [
-        { name: "Paris", position: "top-[20%] left-[45%]" },
-        { name: "Genève", position: "top-[40%] left-[75%]" },
-        { name: "Courchevel", position: "top-[55%] left-[80%]" },
-        { name: "Cannes", position: "bottom-[15%] left-[85%]" },
-        { name: "Monaco", position: "bottom-[10%] left-[95%]" },
-    ];
-
+    
     return (
         <div>
             <h3 className="font-headline text-xl text-white font-semibold">{translations.contact.serviceAreas.title}</h3>
-            <div className="mt-4 relative w-full aspect-[16/9] rounded-lg overflow-hidden bg-black">
-                <Image
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-                    alt="Map of service areas"
-                    fill
-                    className="object-cover w-full h-full opacity-50"
-                />
-                <div className="absolute inset-0 bg-black/50" />
-                <TooltipProvider>
-                    {cities.map((city) => (
-                        <Tooltip key={city.name}>
-                            <TooltipTrigger asChild>
-                                <div className={cn("absolute transform -translate-x-1/2 -translate-y-1/2", city.position)}>
-                                    <div className="relative flex items-center justify-center">
-                                        <motion.div
-                                            className="absolute h-3 w-3 rounded-full bg-primary"
-                                            animate={{
-                                                scale: [1, 2.5, 1],
-                                                opacity: [1, 0, 1]
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        />
-                                        <div className="h-2 w-2 rounded-full bg-primary" />
-                                    </div>
-                                </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>{city.name}</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    ))}
-                </TooltipProvider>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+                {translations.contact.serviceAreas.cities.map((city) => (
+                    <div
+                        key={city}
+                        className="flex items-center justify-center gap-2 rounded-lg bg-accent p-3 text-sm text-gray-300"
+                    >
+                        <MapPin className="h-4 w-4 text-primary" />
+                        <span>{city}</span>
+                    </div>
+                ))}
             </div>
         </div>
     );
@@ -124,7 +86,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <InteractiveMap />
+              <ServiceAreas />
 
             </MotionDiv>
             <MotionDiv
