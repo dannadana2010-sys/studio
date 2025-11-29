@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -18,7 +20,7 @@ export default function CookiesPage() {
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Politique de Cookies</h1>
         
-        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
+        {isClient ? <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p> : <p>&nbsp;</p>}
 
         <SectionTitle>Qu'est-ce qu'un cookie ?</SectionTitle>
         <p>

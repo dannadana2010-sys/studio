@@ -1,4 +1,7 @@
+"use client";
+
 import type { Metadata } from 'next';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente – Victoire Luxury Services",
@@ -18,7 +21,7 @@ export default function CGVPage() {
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Conditions Générales de Vente</h1>
         
-        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
+        {isClient ? <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p> : <p>&nbsp;</p>}
 
         <SectionTitle>Article 1 : Objet</SectionTitle>
         <p>

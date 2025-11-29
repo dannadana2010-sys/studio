@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from 'next';
 import React from 'react';
 
@@ -18,7 +20,7 @@ export default function ConfidentialitePage() {
     <article className="prose prose-invert max-w-none">
         <h1 className="text-4xl md:text-5xl font-headline text-primary text-center mb-12">Politique de Confidentialité</h1>
         
-        {isClient && <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>}
+        {isClient ? <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p> : <p>&nbsp;</p>}
 
         <p>
             Victoire Luxury Services SAS s'engage à protéger la vie privée de ses clients et des visiteurs de son site web. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles.

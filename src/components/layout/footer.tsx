@@ -72,7 +72,7 @@ export function Footer() {
                 ))}
             </div>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-x-4 gap-y-2">
-            {isClient && (
+            {isClient ? (
               <>
                 <p>
                   &copy; {currentYear} {translations.footer.copyright}
@@ -82,6 +82,8 @@ export function Footer() {
                     Designed by <a href="https://www.darkavel.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors duration-300">Darkavel</a>
                 </p>
               </>
+            ) : (
+                <p>&nbsp;</p> 
             )}
           </div>
         </div>
