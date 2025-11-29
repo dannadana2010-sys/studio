@@ -165,9 +165,10 @@ export const translations = {
       management: {
         title: "Rencontrez la Direction",
         members: [
-          { name: "Jean-Pierre Dubois", role: "Fondateur & CEO", hint: "man portrait" },
-          { name: "Céline Moreau", role: "Directrice des Opérations", hint: "woman portrait" },
-          { name: "Louis Chevalier", role: "Chauffeur Principal", hint: "man portrait smiling" },
+          { name: "Jean-Pierre Dubois", role: "Fondateur & CEO", hint: "mature businessman" },
+          { name: "Céline Moreau", role: "Directrice des Opérations", hint: "professional woman" },
+          { name: "Karim Amine", role: "Responsable Partenariats", hint: "arabic businessman" },
+          { name: "Louis Chevalier", role: "Chauffeur Principal", hint: "smiling chauffeur" },
         ],
       },
     },
@@ -404,9 +405,10 @@ export const translations = {
       management: {
         title: "Meet the Management",
         members: [
-          { name: "Jean-Pierre Dubois", role: "Founder & CEO", hint: "man portrait" },
-          { name: "Céline Moreau", role: "Operations Director", hint: "woman portrait" },
-          { name: "Louis Chevalier", role: "Head Chauffeur", hint: "man portrait smiling" },
+          { name: "Jean-Pierre Dubois", role: "Founder & CEO", hint: "mature businessman" },
+          { name: "Céline Moreau", role: "Operations Director", hint: "professional woman" },
+          { name: "Karim Amine", role: "Partnership Manager", hint: "arabic businessman" },
+          { name: "Louis Chevalier", role: "Head Chauffeur", hint: "smiling chauffeur" },
         ],
       },
     },
@@ -481,3 +483,5 @@ export const translations = {
 };
 
 export type Translations = typeof translations.fr;
+
+    

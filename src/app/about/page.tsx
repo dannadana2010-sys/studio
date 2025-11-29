@@ -86,7 +86,7 @@ export default function AboutPage() {
             >
                 <h2 className="font-headline text-3xl md:text-4xl text-white font-bold">{translations.about.management.title}</h2>
             </MotionDiv>
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {translations.about.management.members.map((member, index) => (
                     <MotionDiv 
                         key={member.name}
@@ -110,3 +110,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
+    
