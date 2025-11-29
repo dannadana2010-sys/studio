@@ -3,7 +3,7 @@
 import { ContactForm } from '@/components/contact-form';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { HeroSection } from '@/components/hero-section';
-import { Mail, Phone, MapPin, ArrowLeft } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { MotionDiv } from '@/components/motion-div';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -26,14 +26,14 @@ const ServiceAreas = () => {
     return (
         <div>
             <h3 className="font-headline text-xl text-white font-semibold">{translations.contact.serviceAreas.title}</h3>
-            <div className="mt-4 grid grid-cols-2 gap-3">
+            <div className="mt-4 flex flex-col gap-4">
                 {translations.contact.serviceAreas.cities.map((city) => (
                     <div
                         key={city}
-                        className="flex items-center justify-center gap-2 rounded-lg bg-accent p-3 text-sm text-gray-300"
+                        className="flex items-center gap-3 text-lg"
                     >
-                        <MapPin className="h-4 w-4 text-primary" />
-                        <span>{city}</span>
+                        <MapPin className="h-5 w-5 text-primary" />
+                        <span className="font-headline text-white">{city}</span>
                     </div>
                 ))}
             </div>
@@ -71,17 +71,21 @@ export default function ContactPage() {
                   {translations.contact.getInTouch.subtitle}
                 </p>
                 <div className="mt-8 space-y-4">
+                    <a href="mailto:contact@victoire-luxury.com" className="flex items-center gap-3 text-white hover:text-primary transition-colors">
+                        <Mail className="h-5 w-5 text-primary" />
+                        <span>contact@victoire-luxury.com</span>
+                    </a>
+                    <a href="tel:+33668827498" className="flex items-center gap-3 text-white hover:text-primary transition-colors">
+                        <Phone className="h-5 w-5 text-primary" />
+                        <span>+33 6 68 82 74 98</span>
+                    </a>
+                </div>
+                 <div className="mt-8 space-y-4">
                   <Button asChild size="lg" className="w-full bg-[#25D366] hover:bg-[#1EBE57] text-white">
                     <Link href="https://wa.me/33668827498" target="_blank" rel="noopener noreferrer">
                       <WhatsappIcon />
                       {translations.contact.getInTouch.whatsapp}
                     </Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="w-full">
-                    <a href="tel:+33668827498">
-                      <Phone className="h-5 w-5" />
-                      {translations.contact.getInTouch.call} (+33 6 68 82 74 98)
-                    </a>
                   </Button>
                 </div>
               </div>
